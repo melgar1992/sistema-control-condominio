@@ -32,6 +32,11 @@
                     <section class="login_content">
                         <form action="<?php echo base_url(); ?>BaseController/login_process" method="post">
                             <h1>Ingreso </h1>
+                            <?php if ($this->session->flashdata("error")) : ?>
+                                <div class="alert alert-danger">
+                                    <p><?php echo $this->session->flashdata("error"); ?></p>
+                                </div>
+                            <?php endif; ?>
                             <div>
                                 <input type="text" name="username" class="form-control" placeholder="Username" required="required" />
                             </div>
