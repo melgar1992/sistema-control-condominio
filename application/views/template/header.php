@@ -23,4 +23,8 @@ if (!$this->session->userdata('login')) {
   <link href="<?php echo base_url(); ?>assets/template/nprogress/nprogress.css" rel="stylesheet">
   <!-- Custom Theme Style -->
   <link href="<?php echo base_url(); ?>assets/template/build/css/custom.min.css" rel="stylesheet">
+  <!-- Data Tables export -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/datatables-export/css/buttons.dataTables.min.css">
+  <!-- DataTables-->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/datatables.net-bs/css/dataTables.bootstrap.min.css">
 </head>

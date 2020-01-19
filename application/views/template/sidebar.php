@@ -16,44 +16,44 @@
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section active">
 
-                        <h3>General</h3>
-                        <ul class="nav side-menu">
-                            <li><a><i class="fa fa-home"></i> Inicio <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="index.html">Dashboard</a></li>
+                            <h3>General</h3>
+                            <ul class="nav side-menu">
+                                <li><a><i class="fa fa-home"></i> Inicio <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="index.html">Dashboard</a></li>
 
-                                </ul>
-                            </li>
-                            <li><a><i class="fa fa-edit"></i> Formularios <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="form.html">Usuarios</a></li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-edit"></i> Formularios <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="form.html">Usuarios</a></li>
 
-                                    <li><a href="<?php echo base_url(); ?>Formularios/Copropietario"></i>Copropietario del condominio</a></li>
-                                    <li><a href="form_validation.html">Control</a></li>
+                                        <li><a href="<?php echo base_url(); ?>Formularios/Copropietario"></i>Copropietario del condominio</a></li>
+                                        <li><a href="form_validation.html">Control</a></li>
 
-                                </ul>
-                            </li>
+                                    </ul>
+                                </li>
 
-                        </ul>
+                            </ul>
 
 
-                    </div>
-                    <div>
-                        <!-- /sidebar menu -->
-
-                        <!-- /menu footer buttons -->
-                        <div class="sidebar-footer hidden-small">
-
-                            <a data-toggle="tooltip" data-placement="top" title="Logout" href="<?php echo base_url() . 'BaseController/logout'; ?>">
-                                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-                            </a>
                         </div>
-                        <!-- /menu footer buttons -->
+                        <div>
+                            <!-- /sidebar menu -->
+
+                            <!-- /menu footer buttons -->
+                            <div class="sidebar-footer hidden-small">
+
+                                <a data-toggle="tooltip" data-placement="top" title="Logout" href="<?php echo base_url() . 'BaseController/logout'; ?>">
+                                    <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                                </a>
+                            </div>
+                            <!-- /menu footer buttons -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-</div>
 
         <!-- top navigation -->
         <div class="top_nav">
@@ -82,5 +82,4 @@
         </div>
 
 
-    </div>
-</body>
+  
