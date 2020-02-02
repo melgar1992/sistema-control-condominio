@@ -23,8 +23,8 @@ class BaseController extends CI_Controller
 		$username = $this->input->post("username");
 		$password = $this->input->post("password");
 
-		$res = $this->Usuario_model->login($username, sha1($password));
-
+		//$res = $this->Usuario_model->login($username, sha1($password));
+		$res = $this->Usuario_model->login($username, $password);
 		if (!$res) {
 			$this->session->set_flashdata("error", "El usuario y/o contraseña son incorrectos");
 			redirect(base_url());

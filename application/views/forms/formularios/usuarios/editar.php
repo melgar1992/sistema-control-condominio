@@ -1,6 +1,4 @@
 <!-- Content Wrapper. Contains page content -->
-
-<!-- page content -->
 <div class="right_col" role="main" style="min-height: 950px;">
     <div class="">
         <div class="page-title">
@@ -31,70 +29,69 @@
 
                             </div>
                         <?php endif; ?>
-                        <form method="POST" action="<?php echo base_url(); ?>Formularios/Copropietario/actualizarCopropietario" id="copropietario" class="form-horizontal form-label-left">
-                            <input type="hidden" value="<?php echo $copropietario->id_copropietario; ?>" name="id_copropietario">
-                            <input type="hidden" value="<?php echo $copropietario->id_persona; ?>" name="id_persona">
+                        <form method="POST" action="<?php echo base_url(); ?>Formularios/Usuarios/actualizarUsuario" id="usuario" class="form-horizontal form-label-left">
+                            <input type="hidden" value="<?php echo $usuario->id_usuarios; ?>" name="id_usuarios">
 
                             <div class="form-group <?php echo !empty(form_error("nombre")) ? 'has-error' : ''; ?>">
                                 <label for="nombre" class="control-label col-md-4 col-sm-3 col-xs-12">Nombres: <span class="required">*</span></label>
                                 <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <input type="text" name="nombre" value="<?php echo !empty(form_error("nombre")) ? set_value("nombre") : $copropietario->nombres ?>" id=nombre required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
+                                    <input type="text" name="nombre" value="<?php echo !empty(form_error("nombre")) ? set_value("nombre") : $usuario->nombres ?>" id=nombre required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                                     <?php echo form_error("nombre", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                 </div>
                             </div>
                             <div class="form-group <?php echo !empty(form_error("apellidos")) ? 'has-error' : ''; ?>">
                                 <label for="apellidos" class="control-label col-md-4 col-sm-3 col-xs-12">Apellidos: <span class="required">*</span></label>
                                 <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <input type="text" name="apellidos" value="<?php echo !empty(form_error("apellidos")) ? set_value("apellidos") : $copropietario->apellidos ?>" id=apellidos required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
+                                    <input type="text" name="apellidos" value="<?php echo !empty(form_error("apellidos")) ? set_value("apellidos") : $usuario->apellidos ?>" id=apellidos required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                                     <?php echo form_error("apellidos", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                 </div>
                             </div>
                             <div class="form-group <?php echo !empty(form_error("ci")) ? 'has-error' : ''; ?>">
                                 <label for="ci" class="control-label col-md-4 col-sm-3 col-xs-12">Carnet Identidad: <span class="required">*</span></label>
                                 <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <input type="text" name="ci" value="<?php echo !empty(form_error("ci")) ? set_value("ci") : $copropietario->carnet_identidad ?>" id=ci required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
+                                    <input type="text" name="ci" value="<?php echo !empty(form_error("ci")) ? set_value("ci") : $usuario->carnet_identidad ?>" id=ci required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                                     <?php echo form_error("ci", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                 </div>
                             </div>
                             <div class="form-group <?php echo !empty(form_error("telefono")) ? 'has-error' : ''; ?>">
-                                <label for="telefono" class="control-label col-md-4 col-sm-3 col-xs-12">Telefono: <span class="required">*</span></label>
+                                <label for="telefono" class="control-label col-md-4 col-sm-3 col-xs-12">Numero de telefono: <span class="required">*</span></label>
                                 <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <input type="text" name="telefono" value="<?php echo !empty(form_error("telefono")) ? set_value("telefono") : $copropietario->telefono ?>" id=telefono required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
+                                    <input type="text" name="telefono" value="<?php echo !empty(form_error("telefono")) ? set_value("telefono") : $usuario->telefono ?>" id=telefono required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                                     <?php echo form_error("telefono", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                 </div>
                             </div>
-                            <div class="form-group <?php echo !empty(form_error("numero_vivienda")) ? 'has-error' : ''; ?>">
-                                <label for="numero_vivienda" class="control-label col-md-4 col-sm-3 col-xs-12">Numero Vivienda: <span class="required">*</span></label>
+                            <div class="form-group <?php echo !empty(form_error("nombre_usuario")) ? 'has-error' : ''; ?>">
+                                <label for="nombre_usuario" class="control-label col-md-4 col-sm-3 col-xs-12">Nombre de usuario: <span class="required">*</span></label>
                                 <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <input type="text" name="numero_vivienda" value="<?php echo !empty(form_error("numero_vivienda")) ? set_value("numero_vivienda") : $copropietario->numero_vivienda ?>" id=numero_vivienda required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
-                                    <?php echo form_error("numero_vivienda", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                                    <input type="text" name="nombre_usuario" value="<?php echo !empty(form_error("nombre_usuario")) ? set_value("nombre_usuario") : $usuario->username ?>" id=nombre_usuario required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
+                                    <?php echo form_error("nombre_usuario", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                 </div>
                             </div>
-                            <div class="form-group <?php echo !empty(form_error("calle")) ? 'has-error' : ''; ?>">
-                                <label for="calle" class="control-label col-md-4 col-sm-3 col-xs-12">Calle: <span class="required">*</span></label>
+                            <div class="form-group <?php echo !empty(form_error("contrasena")) ? 'has-error' : ''; ?>">
+                                <label for="contrasena" class="control-label col-md-4 col-sm-3 col-xs-12">contrasena:</label>
                                 <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <input type="text" name="calle" value="<?php echo !empty(form_error("calle")) ? set_value("calle") : $copropietario->calle ?>" id=calle required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
-                                    <?php echo form_error("calle", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                                    <input type="password" autocomplete="new-password" name="contrasena" value="<?php echo  set_value('contrasena') ?>" id=contrasena  class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
+                                    <?php echo form_error("contrasena", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                 </div>
                             </div>
-                            <div class="form-group <?php echo !empty(form_error("numero_interno")) ? 'has-error' : ''; ?>">
-                                <label for="numero_interno" class="control-label col-md-4 col-sm-3 col-xs-12">Numero Interno: <span class="required">*</span></label>
+                            <div class="form-group <?php echo !empty(form_error("fecha_ingreso")) ? 'has-error' : ''; ?>">
+                                <label for="fecha_ingreso" class="control-label col-md-4 col-sm-3 col-xs-12">fecha ingreso: <span class="required">*</span></label>
                                 <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <input type="text" name="numero_interno" value="<?php echo !empty(form_error("numero_interno")) ? set_value("numero_interno") : $copropietario->numero_interno ?>" id=numero_interno required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
-                                    <?php echo form_error("numero_interno", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                                    <input type="date" name="fecha_ingreso" value="<?php echo !empty(form_error("fecha_ingreso")) ? set_value("fecha_ingreso") : $usuario->fecha_ingreso ?>" id=fecha_ingreso required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
+                                    <?php echo form_error("fecha_ingreso", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="tipo_copropietario" class="control-label col-md-4 col-sm-3 col-xs-12">Tipo Copropietario: </label>
+                                <label for="roles" class="control-label col-md-4 col-sm-3 col-xs-12">Nivel de usuario : </label>
                                 <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <select id="tipo_copropietario" required name="tipo_copropietario" class="form-control col-md-3 col-xs-12">
+                                    <select id="roles" required name="roles" class="form-control col-md-3 col-xs-12">
                                         <option value=""></option>
-                                        <option value="Propietario" <?php echo ($copropietario->tipo_copropietario == 'Propietario') ? 'selected' : ''; ?>>Propietario</option>
-                                        <option value="Inquilino" <?php echo ($copropietario->tipo_copropietario == 'Inquilino') ? 'selected' : ''; ?>>Inquilino</option>
-
+                                        <option value="administrador total" <?php echo ($usuario->tiporol == 'administrador total') ? 'selected' : ''; ?>>Administrador total</option>
+                                        <option value="administrador condominio" <?php echo ($usuario->tiporol == 'administrador condominio') ? 'selected' : ''; ?>>Administrador del condominio</option>
+                                        <option value="guardia" <?php echo ($usuario->tiporol == 'guardia') ? 'selected' : ''; ?>>Guardia</option>
                                     </select>
-                                    <?php echo form_error("tipo_copropietario", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                                    <?php echo form_error("roles", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                 </div>
                             </div>
                             <div class="in_solid"></div>
@@ -104,7 +101,7 @@
                             <div class="form-group">
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <a href="<?php echo site_url("Formularios/Copropietario") ?>" class="btn btn-primary btn-flat">Volver</a>
+                                    <a href="<?php echo site_url("Formularios/Usuarios") ?>" class="btn btn-primary btn-flat">Volver</a>
                                     <button type="submit" id="guardar" class="btn btn-success">Editar</button>
 
                                 </div>

@@ -26,7 +26,7 @@
                                 </li>
                                 <li><a><i class="fa fa-edit"></i> Formularios <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="form.html">Usuarios</a></li>
+                                        <li><a href="<?php echo base_url();?>Formularios/Usuarios">Usuarios</a></li>
 
                                         <li><a href="<?php echo base_url(); ?>Formularios/Copropietario"></i>Copropietario del condominio</a></li>
                                         <li><a href="form_validation.html">Control</a></li>
@@ -66,7 +66,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/img.jpg" alt=""><?php echo $this->session->userdata('nombres'); ?>
+                                <?php echo $this->session->userdata('nombres'); ?>
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
