@@ -27,9 +27,9 @@
                                 <li><a><i class="fa fa-edit"></i> Formularios <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="<?php echo base_url();?>Formularios/Usuarios">Usuarios</a></li>
-
                                         <li><a href="<?php echo base_url(); ?>Formularios/Copropietario"></i>Copropietario del condominio</a></li>
-                                        <li><a href="form_validation.html">Control</a></li>
+                                        <li><a href="<?php echo base_url() ?>Formularios/Categoria_visita">Cateogira de Visitas</a></li>
+                                        <li><a href="<?php echo base_url() ?>Formularios/Control">Control</a></li>
 
                                     </ul>
                                 </li>
