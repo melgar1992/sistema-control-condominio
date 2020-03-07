@@ -17,7 +17,6 @@
     <script src="<?php echo base_url(); ?>assets/template/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="<?php echo base_url(); ?>assets/template/nprogress/nprogress.js"></script>
-
     <!-- Custom Theme Scripts -->
     <script src="<?php echo base_url(); ?>assets/template/build/js/custom.min.js"></script>
     <!-- DataTables-->
@@ -35,6 +34,8 @@
     <script src="<?php echo base_url(); ?>assets/template/sweetalert2/sweetalert2.all.min.js"></script>
     <!-- Chartjs -->
     <script src="<?php echo base_url(); ?>assets/template/chartjs/Chart.js"></script>
+    <!-- Jquery Print, sirve para imprimir -->
+    <script src="<?php echo base_url(); ?>assets/template/jquery-print/jquery.print.js"></script>
 
     <input type="hidden" value="<?php echo base_url() ?>" id="base_url">
     <script>
