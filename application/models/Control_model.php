@@ -44,7 +44,7 @@ class Control_model extends CI_Model
     {
         $resultadop = $this->Persona_model->buscarPersona($datospersona['carnet_identidad']);
         if (isset($resultadop)) {
-            if (($resultadop['nombres'] != $datospersona['nombres']) || ($resultadop['apellidos'] == $datospersona['apellidos'])) {
+            if (($resultadop['nombres'] != $datospersona['nombres']) || ($resultadop['apellidos'] != $datospersona['apellidos'])) {
                 $this->db->where('id_persona', $resultadop['id_persona']);
                 $this->db->update('persona', $datospersona);
                 $datoscontrol['id_persona'] = $resultadop['id_persona'];
@@ -61,7 +61,7 @@ class Control_model extends CI_Model
 
         $resultadov = $this->Vehiculo_model->buscarVehiculo($datosvehiculo['placa']);
         if (isset($resultadov)) {
-            if (($resultadov['color'] != $datosvehiculo['color']) || ($resultadov['marca'] == $datosvehiculo['marca'])) {
+            if (($resultadov['color'] != $datosvehiculo['color']) || ($resultadov['marca'] != $datosvehiculo['marca'])) {
                 $this->db->where('id_vehiculo', $resultadov['id_vehiculo']);
                 $this->db->update('vehiculo', $datosvehiculo);
                 $datoscontrol['id_vehiculo'] = $resultadov['id_vehiculo'];
