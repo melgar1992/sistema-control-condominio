@@ -102,7 +102,7 @@ class Control extends BaseController
       'id_usuarios' => $id_usuarios,
     );
     $datos_copropietario = $this->Copropietario_model->getCopropietario($id_copropietario);
-    if ($this->Control_model->editarControl($id_control_entrada_salida ,$datospersona, $datosvehiculo, $datoscontrol)) {
+    if ($this->Control_model->editarControl($id_control_entrada_salida, $datospersona, $datosvehiculo, $datoscontrol)) {
       $dvisita = $this->Categoria_visita_model->getCategoria($id_categoria_visita);
       $respuesta = array(
         'respuesta' => 'Exitoso',
@@ -123,6 +123,28 @@ class Control extends BaseController
       $respuesta = array('respuesta' => 'No se pudo editar correctamente');
     }
 
+    echo json_encode($respuesta);
+  }
+
+  public function salidaControl()
+  {
+    $id_control_entrada_salida = $this->input->post('id_control_entrada_salida');
+    $fecha_hora_salida = date('Y-m-d H:i:s');
+    $datoscontrol = array(
+      'fecha_hora_salida' => $fecha_hora_salida,
+
+    );
+
+    if ($this->Control_model->salidaControl($id_control_entrada_salida, $datoscontrol)) {
+      $respuesta = array(
+        'respuesta' => 'Exitoso',
+        'datos' => array(
+          'fecha_hora_salida' => $fecha_hora_salida,
+        )
+      );
+    } else {
+      $respuesta = array('respuesta' => 'No se pudo guardar correctamente');
+    }
     echo json_encode($respuesta);
   }
 }

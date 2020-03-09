@@ -11,7 +11,7 @@
                <div class="col-md-12 col-sm-12 col-xs-12">
                    <div class="x_panel">
                        <div class="x_title">
-                           <h2>Plain Page</h2>
+                           <h2>Control de condominio</h2>
                            <ul class="nav navbar-right panel_toolbox">
                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                </li>
@@ -155,7 +155,7 @@
 
                                                                <td>
                                                                    <div class="btn-group">
-                                                                       <button type="button" title='Marcar salida' value="<?php echo $control_visita->id_control_entrada_salida; ?>" class="btn btn-success btn-salida"><span class="fa fa-sign-out"></span></button>
+                                                                       <button type="button" id="btn-salida" title='Marcar salida' value="<?php echo $control_visita->id_control_entrada_salida; ?>" class="btn btn-success btn-salida"><span class="fa fa-sign-out"></span></button>
                                                                        <button type="button" value="<?php echo $control_visita->id_control_entrada_salida; ?>" class="btn btn-warning btn-editar"><span class="fa fa-pencil"></span></button>
                                                                        <button type="button" value="<?php echo $control_visita->id_control_entrada_salida; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
                                                                    </div>

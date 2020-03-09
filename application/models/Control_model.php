@@ -82,4 +82,9 @@ class Control_model extends CI_Model
     {
         return $this->db->insert_id();
     }
+    public function salidaControl($id_control_entrada_salida, $datoscontrol)
+    {
+        $this->db->where('id_control_entrada_salida', $id_control_entrada_salida);
+        return $this->db->update('control_entrada_salida', $datoscontrol);
+    }
 }

@@ -4,7 +4,7 @@ $(document).ready(function () {
 		"columnDefs": [{
 			"targets": -1,
 			"data": null,
-			"defaultContent": "<div class='btn-group'><button type='button' title='Marcar salida' value='<?php echo $control_visita->id_control_entrada_salida; ?>' class='btn btn-success btn-salida'><span class='fa fa-sign-out'></span></button><button type='button'  class='btn btn-warning btn-editar'><span class='fa fa-pencil'></span></button><button type='button' class='btn btn-danger btn-borrar'><span class='fa fa-remove'></span></button></div>",
+			"defaultContent": "<div class='btn-group'><button type='button' id= 'btn-salida' title='Marcar salida' value='<?php echo $control_visita->id_control_entrada_salida; ?>' class='btn btn-success btn-salida'><span class='fa fa-sign-out'></span></button><button type='button'  class='btn btn-warning btn-editar'><span class='fa fa-pencil'></span></button><button type='button' class='btn btn-danger btn-borrar'><span class='fa fa-remove'></span></button></div>",
 		}],
 		"language": {
 			'lengthMenu': "Mostrar _MENU_ registros",
@@ -25,7 +25,10 @@ $(document).ready(function () {
 		responsive: "true",
 
 	});
-
+	$('#placa').on('change', function () {
+		str = $('#placa').val();
+		$('#placa').val(str.toUpperCase());
+	});
 
 	$('#control').submit(function (e) {
 		e.preventDefault();
@@ -81,6 +84,45 @@ $(document).ready(function () {
 
 			}
 		});
+
+	});
+	$(document).on('click','.btn-salida', function () {
+		fila = $(this).closest('tr');
+		id_control_entrada_salida = parseInt(fila.find('td:eq(0)').text());
+		control_salida = fila.find('td:eq(10)').text();
+		if (control_salida === '') {
+			$.ajax({
+				type: "POST",
+				url: base_url + "Formularios/control/salidaControl",
+				data: { id_control_entrada_salida: id_control_entrada_salida },
+				dataType: "json",
+				success: function (respuesta) {
+					if (respuesta['respuesta'] === 'Exitoso') {
+						fecha_salida = respuesta['datos']['fecha_hora_salida'];
+						tabla_control.cell(fila, 10).data(fecha_salida).draw();
+						swal({
+							title: 'Editado',
+							text: respuesta['respuesta'],
+							type: 'success'
+						});
+
+					} else {
+						swal({
+							title: 'Error',
+							text: respuesta['respuesta'],
+							type: 'error'
+						});
+					}
+				}
+			});
+		} else {
+			swal({
+				title: 'Advertencia',
+				text: 'La hora de salida ya fue marcada',
+				type: 'warning'
+			});
+		}
+
 
 	});
 
