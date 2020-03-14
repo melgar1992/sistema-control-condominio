@@ -19,9 +19,9 @@
                            <div class="clearfix"></div>
                        </div>
                        <div class="x_content">
-                           Pagina de control de ingreso
+                           <h4>Pagina de control de ingreso, Todos los campos con * son obligatorios.</h4>
                            <form method="POST" action="<?php echo base_url(); ?>Formularios/Usuarios/guardarUsuario" id="control" class="form-horizontal form-label-left">
-
+                               <input type="hidden" value="<?php echo $this->session->userdata('rol'); ?>" name="rol" id="rol">
 
                                <div class="form-group <?php echo !empty(form_error("nombre")) ? 'has-error' : ''; ?>">
                                    <label for="nombre" class="control-label col-md-4 col-sm-3 col-xs-12">Nombres: <span class="required">*</span></label>
@@ -158,6 +158,7 @@
                                                                        <button type="button" id="btn-salida" title='Marcar salida' value="<?php echo $control_visita->id_control_entrada_salida; ?>" class="btn btn-success btn-salida"><span class="fa fa-sign-out"></span></button>
                                                                        <button type="button" value="<?php echo $control_visita->id_control_entrada_salida; ?>" class="btn btn-warning btn-editar"><span class="fa fa-pencil"></span></button>
                                                                        <button type="button" value="<?php echo $control_visita->id_control_entrada_salida; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
+
                                                                    </div>
                                                                </td>
                                                            </tr>

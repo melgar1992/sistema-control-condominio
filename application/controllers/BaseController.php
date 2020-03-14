@@ -36,9 +36,13 @@ class BaseController extends CI_Controller
 				'rol' => $res->rol,
 				'login' => true,
 			);
-
-			$this->session->set_userdata($data);
-			redirect(base_url() . '');
+			if ($res->rol != 'guardia') {
+				$this->session->set_userdata($data);
+				redirect(base_url() . '');
+			} else {
+				$this->session->set_userdata($data);
+				redirect(base_url() . 'Formularios/Control');
+			}
 		}
 	}
 	public function logout()

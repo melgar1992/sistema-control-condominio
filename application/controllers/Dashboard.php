@@ -12,10 +12,24 @@ class Dashboard extends BaseController
 
   public function index()
   {
-    $datos = array(
-        
-      );
-  
-      $this->loadView('Dashboard', 'dashboard', $datos);
+    $fechainicio = $this->input->post("fechainicio");
+    $fechafin = $this->input->post("fechafin");
+
+    
+    if ($this->input->post("buscar")) {
+      $control_visitas = $this->Control_model->getControl_ingreso_por_fechas($fechainicio, $fechafin);
+    } else {
+      $control_visitas = $this->Control_model->getControl_ingreso();
+    }
+
+
+
+    $data = array(
+      'categoria_visitas' => $this->Categoria_visita_model->getCategorias(),
+      'copropietarios' => $this->Copropietario_model->getCopropietarios(),
+      'control_visitas' => $control_visitas
+    );
+
+    $this->loadView("Dashboard", "dashboard", $data);
   }
 }

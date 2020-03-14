@@ -1,30 +1,75 @@
 $(document).ready(function () {
 	var base_url = $("#base_url").val();
-	var tabla_control = $('#control_tabla').DataTable({
-		"columnDefs": [{
-			"targets": -1,
-			"data": null,
-			"defaultContent": "<div class='btn-group'><button type='button' id= 'btn-salida' title='Marcar salida' value='<?php echo $control_visita->id_control_entrada_salida; ?>' class='btn btn-success btn-salida'><span class='fa fa-sign-out'></span></button><button type='button'  class='btn btn-warning btn-editar'><span class='fa fa-pencil'></span></button><button type='button' class='btn btn-danger btn-borrar'><span class='fa fa-remove'></span></button></div>",
-		}],
-		"language": {
-			'lengthMenu': "Mostrar _MENU_ registros",
-			"zeroRecords": "No se encontraron resultados",
-			"info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registro",
-			"infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-			"infoFiltered": "(filtrado de un total de _MAX_ registros)",
-			"sSearch": "Buscar",
-			"oPaginate": {
-				"sFirst": "Primero",
-				"sLast": "Ultimo",
-				"sNext": "Siguiente",
-				"sPrevious": "Anterior",
+	nivel_usuario = $('#rol').val();
 
+	if (nivel_usuario == 'guardia') {
+		tabla_control = $('#control_tabla').DataTable({
+			"columnDefs": [{
+				"targets": -1,
+				"data": null,
+				"defaultContent": "<div class='btn-group'><button type='button' id= 'btn-salida' title='Marcar salida' value='' class='btn btn-success btn-salida'><span class='fa fa-sign-out'></span></button>",
+			}],
+			"language": {
+				'lengthMenu': "Mostrar _MENU_ registros",
+				"zeroRecords": "No se encontraron resultados",
+				"info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registro",
+				"infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+				"infoFiltered": "(filtrado de un total de _MAX_ registros)",
+				"sSearch": "Buscar",
+				"oPaginate": {
+					"sFirst": "Primero",
+					"sLast": "Ultimo",
+					"sNext": "Siguiente",
+					"sPrevious": "Anterior",
+
+				},
+				"sProcesing": "Procesando...",
 			},
-			"sProcesing": "Procesando...",
-		},
-		responsive: "true",
+			responsive: "true",
+			"order": [
+				[0, "desc"]
+			],
 
-	});
+		});
+		$('#placa').on('change', function () {
+			str = $('#placa').val();
+			$('#placa').val(str.toUpperCase());
+		});
+	} else {
+		tabla_control = $('#control_tabla').DataTable({
+			"columnDefs": [{
+				"targets": -1,
+				"data": null,
+				"defaultContent": "<div class='btn-group'><button type='button' id= 'btn-salida' title='Marcar salida' value='' class='btn btn-success btn-salida'><span class='fa fa-sign-out'></span></button><button type='button'  class='btn btn-warning btn-editar'><span class='fa fa-pencil'></span></button><button type='button' class='btn btn-danger btn-borrar'><span class='fa fa-remove'></span></button></div>",
+			}],
+			"language": {
+				'lengthMenu': "Mostrar _MENU_ registros",
+				"zeroRecords": "No se encontraron resultados",
+				"info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registro",
+				"infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+				"infoFiltered": "(filtrado de un total de _MAX_ registros)",
+				"sSearch": "Buscar",
+				"oPaginate": {
+					"sFirst": "Primero",
+					"sLast": "Ultimo",
+					"sNext": "Siguiente",
+					"sPrevious": "Anterior",
+
+				},
+				"sProcesing": "Procesando...",
+			},
+			responsive: "true",
+			"order": [
+				[0, "desc"]
+			],
+
+		});
+		$('#placa').on('change', function () {
+			str = $('#placa').val();
+			$('#placa').val(str.toUpperCase());
+		});
+	}
+
 	$('#placa').on('change', function () {
 		str = $('#placa').val();
 		$('#placa').val(str.toUpperCase());
@@ -86,7 +131,7 @@ $(document).ready(function () {
 		});
 
 	});
-	$(document).on('click','.btn-salida', function () {
+	$(document).on('click', '.btn-salida', function () {
 		fila = $(this).closest('tr');
 		id_control_entrada_salida = parseInt(fila.find('td:eq(0)').text());
 		control_salida = fila.find('td:eq(10)').text();
@@ -94,7 +139,9 @@ $(document).ready(function () {
 			$.ajax({
 				type: "POST",
 				url: base_url + "Formularios/control/salidaControl",
-				data: { id_control_entrada_salida: id_control_entrada_salida },
+				data: {
+					id_control_entrada_salida: id_control_entrada_salida
+				},
 				dataType: "json",
 				success: function (respuesta) {
 					if (respuesta['respuesta'] === 'Exitoso') {
@@ -139,9 +186,11 @@ $(document).ready(function () {
 		color = fila.find('td:eq(6)').text();
 		marca = fila.find('td:eq(7)').text();
 		id_copropietario = fila.find('td:eq(8)').text();
+		$('#categoria_visita-editar').html($('#categoria_visita-editar').html().replace('selected',''));
+		$('#copropietario-editar').html($('#copropietario-editar').html().replace('selected',''));
+	
 
-
-		$('#formeditar').trigger('reset');
+		$('#form-editar').trigger('reset');
 		$("#nombre-editar").val(nombre)
 		$("#apellidos-editar").val(apellidos)
 		$("#ci-editar").val(ci)
@@ -230,7 +279,7 @@ $(document).ready(function () {
 
 		Swal.fire({
 			title: 'Esta seguro de elimar?',
-			text: "La cateogira de la visita se eliminara!",
+			text: "El control se eliminara, una vez eliminado no se recuperara!",
 			type: 'warning',
 			showCancelButton: true,
 			confirmButtonColor: '#3085d6',
@@ -240,14 +289,23 @@ $(document).ready(function () {
 		}).then((result) => {
 			if (result.value) {
 
-				var id = $(this).val();
+				fila = $(this).closest('tr');
+				id = parseInt(fila.find('td:eq(0)').text());
 
 				$.ajax({
-					url: base_url + 'Formularios/Categoria_visita/borrar/' + id,
+					url: base_url + "Formularios/control/borrarControl/" + id,
 					type: 'POST',
-					success: function (resp) {
+					success: function (respuesta) {
 
-						window.location.href = base_url + resp;
+
+						tabla_control.row(fila).remove().draw();
+						swal({
+							title: 'Eliminado',
+							text: 'Se borro correctamente',
+							type: 'success'
+						});
+
+
 					}
 				})
 

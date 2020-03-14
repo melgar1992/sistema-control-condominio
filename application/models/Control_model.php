@@ -3,9 +3,10 @@ class Control_model extends CI_Model
 {
     public function getControl_ingreso()
     {
-        $this->db->select('ce.*,pc.nombres as nombre_copropietario, pc.apellidos as apellidos_copropietario, cv.nombre as nombre_visita, v.placa, v.color, v.marca, p.nombres, p.apellidos, p.carnet_identidad, p.telefono');
+        $this->db->select('ce.*, u.nombres as nombre_usuarios, u.apellidos as apellidos_usuarios, pc.nombres as nombre_copropietario, pc.apellidos as apellidos_copropietario, cv.nombre as nombre_visita, v.placa, v.color, v.marca, p.nombres, p.apellidos, p.carnet_identidad, p.telefono');
         $this->db->from('control_entrada_salida ce');
         $this->db->join('persona p', 'p.id_persona = ce.id_persona');
+        $this->db->join('usuarios u', 'u.id_usuarios = ce.id_usuarios');
         $this->db->join('copropietario cp', 'cp.id_copropietario = ce.id_copropietario');
         $this->db->join('persona pc', 'pc.id_persona = cp.id_persona');
         $this->db->join('vehiculo v', 'v.id_vehiculo = ce.id_vehiculo');
@@ -86,5 +87,27 @@ class Control_model extends CI_Model
     {
         $this->db->where('id_control_entrada_salida', $id_control_entrada_salida);
         return $this->db->update('control_entrada_salida', $datoscontrol);
+    }
+    public function borrar($id_control_entrada_salida)
+    {
+        $this->db->where('id_control_entrada_salida', $id_control_entrada_salida);
+        $this->db->delete('control_entrada_salida');
+        return $this->db->affected_rows();
+    }
+    public function getControl_ingreso_por_fechas($fechainicio, $fechafin)
+    {
+        $this->db->select('ce.*, u.nombres as nombre_usuarios, u.apellidos as apellidos_usuarios, pc.nombres as nombre_copropietario, pc.apellidos as apellidos_copropietario, cv.nombre as nombre_visita, v.placa, v.color, v.marca, p.nombres, p.apellidos, p.carnet_identidad, p.telefono');
+        $this->db->from('control_entrada_salida ce');
+        $this->db->join('persona p', 'p.id_persona = ce.id_persona');
+        $this->db->join('usuarios u', 'u.id_usuarios = ce.id_usuarios');
+        $this->db->join('copropietario cp', 'cp.id_copropietario = ce.id_copropietario');
+        $this->db->join('persona pc', 'pc.id_persona = cp.id_persona');
+        $this->db->join('vehiculo v', 'v.id_vehiculo = ce.id_vehiculo');
+        $this->db->join('categoria_visita cv', 'cv.id_categoria_visita = ce.id_categoria_visita');
+        $this->db->where("ce.fecha_hora_ingreso >=", $fechainicio);
+        $this->db->or_where("ce.fecha_hora_salida <=", $fechafin);
+        $resultado = $this->db->get();
+
+        return $resultado->result();
     }
 }

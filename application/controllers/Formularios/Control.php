@@ -147,4 +147,14 @@ class Control extends BaseController
     }
     echo json_encode($respuesta);
   }
+  public function borrarControl($id_control_entrada_salida)
+  {
+
+    $this->Control_model->borrar($id_control_entrada_salida);
+      $respuesta = array(
+        'respuesta' => 'Exitoso',
+      );
+    
+    echo json_encode($respuesta);
+  }
 }

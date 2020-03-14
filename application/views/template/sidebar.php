@@ -4,7 +4,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="<?php echo base_url(); ?>" class="site_title"><i class="fa fa-building"></i> <span>Control Condominio</span></a>
+                        <a href="" class="site_title"><i class="fa fa-building"></i> <span>Control Condominio</span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -18,18 +18,24 @@
 
                             <h3>General</h3>
                             <ul class="nav side-menu">
-                                <li><a><i class="fa fa-home"></i> Inicio <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="index.html">Dashboard</a></li>
+                                <?php if ($this->session->userdata('rol') == 'administrador total') : ?>
+                                    <li><a><i class="fa fa-home"></i> Inicio <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="<?php echo base_url() ?>">Dashboard</a></li>
 
-                                    </ul>
-                                </li>
+                                        </ul>
+                                    </li>
+                                <?php endif; ?>
                                 <li><a><i class="fa fa-edit"></i> Formularios <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="<?php echo base_url();?>Formularios/Usuarios">Usuarios</a></li>
-                                        <li><a href="<?php echo base_url(); ?>Formularios/Copropietario"></i>Copropietario del condominio</a></li>
-                                        <li><a href="<?php echo base_url() ?>Formularios/Categoria_visita">Cateogira de Visitas</a></li>
-                                        <li><a href="<?php echo base_url() ?>Formularios/Control">Control</a></li>
+                                        <?php if ($this->session->userdata('rol') == 'administrador total') : ?>
+                                            <li><a href="<?php echo base_url(); ?>Formularios/Usuarios">Usuarios</a></li>
+                                        <?php endif; ?>
+                                        <?php if (($this->session->userdata('rol') == 'administrador total') || ($this->session->userdata('rol') == 'administrador condominio')) : ?>
+                                            <li><a href="<?php echo base_url(); ?>Formularios/Copropietario"></i>Copropietario del condominio</a></li>
+                                            <li><a href="<?php echo base_url() ?>Formularios/Categoria_visita">Cateogira de Visitas</a></li>
+                                        <?php endif; ?>
+                                        <li><a href="<?php echo base_url() ?>Formularios/Control">Control del condominio</a></li>
 
                                     </ul>
                                 </li>
@@ -80,6 +86,3 @@
                 </nav>
             </div>
         </div>
-
-
-  
