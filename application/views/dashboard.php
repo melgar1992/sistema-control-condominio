@@ -70,7 +70,7 @@
                     </div>
                     <hr>
                     </hr>
-                    <br> </br>
+                    
                     <div class="row">
                     <h4>Seleccione las fechas para filtrar los controles.</h4>
                       <form action="<?php echo current_url(); ?>" method="POST" class="form-horizontal">
@@ -93,7 +93,7 @@
                     </div>
                     <hr>
                     </hr>
-                    <br> </br>
+                    
                     <div class="col-md-12">
                       <table id="example" class="table table-bordered btn-hover">
                         <thead>
