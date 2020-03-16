@@ -27,7 +27,9 @@ class Dashboard extends BaseController
     $data = array(
       'categoria_visitas' => $this->Categoria_visita_model->getCategorias(),
       'copropietarios' => $this->Copropietario_model->getCopropietarios(),
-      'control_visitas' => $control_visitas
+      'control_visitas' => $control_visitas,
+      'usuarios' => $this->Usuario_model->getUsuarios(),
+      'visitas_mes' => $this->Control_model->getControl_ingreso_por_mes(date('Y-m')),
     );
 
     $this->loadView("Dashboard", "dashboard", $data);

@@ -24,10 +24,10 @@
                           <div class="tile-stats">
                             <div class="icon"><i class="fa fa-arrow-circle-right"></i>
                             </div>
-                            <div class="count">179</div>
+                            <div class="count"><?php echo count($visitas_mes) ; ?></div>
 
                             <h3>Control de ingreso</h3>
-                            <p>Ingreso al condominio del dia.</p>
+                            <p>Ingreso al condominio del mes.</p>
                           </div>
                         </a>
                       </div>
@@ -36,7 +36,7 @@
                           <div class="tile-stats">
                             <div class="icon"><i class="fa fa-group"></i>
                             </div>
-                            <div class="count">179</div>
+                            <div class="count"><?php echo count($copropietarios) ; ?></div>
 
                             <h3>Copropietarios</h3>
                             <p>Copropietarios del condominio</p>
@@ -48,7 +48,7 @@
                           <div class="tile-stats">
                             <div class="icon"><i class="fa fa-user"></i>
                             </div>
-                            <div class="count">179</div>
+                            <div class="count"><?php echo count($usuarios) ; ?></div>
 
                             <h3>Usuarios Activos</h3>
                             <p>Administrar a los usuarios</p>
@@ -60,7 +60,7 @@
                           <div class="tile-stats">
                             <div class="icon"><i class="fa fa-check-square-o"></i>
                             </div>
-                            <div class="count">179</div>
+                            <div class="count"><?php echo count($categoria_visitas) ; ?></div>
 
                             <h3>Categorias de visitas</h3>
                             <p>Administrar las categorias de las visitas</p>
