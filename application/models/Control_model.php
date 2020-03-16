@@ -120,7 +120,7 @@ class Control_model extends CI_Model
         $this->db->join('persona pc', 'pc.id_persona = cp.id_persona');
         $this->db->join('vehiculo v', 'v.id_vehiculo = ce.id_vehiculo');
         $this->db->join('categoria_visita cv', 'cv.id_categoria_visita = ce.id_categoria_visita');
-        $this->db->where("ce.fecha_hora_ingreso >=", $mes);
+        $this->db->where("ce.fecha_hora_ingreso >=", $mes . '-1');
         $resultado = $this->db->get();
 
         return $resultado->result_array();
