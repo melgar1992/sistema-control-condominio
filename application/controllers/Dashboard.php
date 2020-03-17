@@ -12,17 +12,14 @@ class Dashboard extends BaseController
 
   public function index()
   {
-    $fechainicio = $this->input->post("fechainicio");
-    $fechafin = $this->input->post("fechafin");
 
-    
     if ($this->input->post("buscar")) {
+      $fechainicio = $this->input->post("fechainicio");
+      $fechafin = $this->input->post("fechafin");
       $control_visitas = $this->Control_model->getControl_ingreso_por_fechas($fechainicio, $fechafin);
     } else {
       $control_visitas = $this->Control_model->getControl_ingreso();
     }
-
-
 
     $data = array(
       'categoria_visitas' => $this->Categoria_visita_model->getCategorias(),
