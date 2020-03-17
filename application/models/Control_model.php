@@ -105,7 +105,7 @@ class Control_model extends CI_Model
         $this->db->join('vehiculo v', 'v.id_vehiculo = ce.id_vehiculo');
         $this->db->join('categoria_visita cv', 'cv.id_categoria_visita = ce.id_categoria_visita');
         $this->db->where("ce.fecha_hora_ingreso >=", $fechainicio);
-        $this->db->or_where("ce.fecha_hora_salida <=", $fechafin);
+        $this->db->where("ce.fecha_hora_ingreso <=", $fechafin);
         $resultado = $this->db->get();
 
         return $resultado->result();

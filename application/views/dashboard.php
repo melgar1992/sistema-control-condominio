@@ -24,7 +24,7 @@
                           <div class="tile-stats">
                             <div class="icon"><i class="fa fa-arrow-circle-right"></i>
                             </div>
-                            <div class="count"><?php echo count($visitas_mes) ; ?></div>
+                            <div class="count"><?php echo count($visitas_mes); ?></div>
 
                             <h3>Control de ingreso</h3>
                             <p>Ingreso al condominio del mes.</p>
@@ -36,7 +36,7 @@
                           <div class="tile-stats">
                             <div class="icon"><i class="fa fa-group"></i>
                             </div>
-                            <div class="count"><?php echo count($copropietarios) ; ?></div>
+                            <div class="count"><?php echo count($copropietarios); ?></div>
 
                             <h3>Copropietarios</h3>
                             <p>Copropietarios del condominio</p>
@@ -48,7 +48,7 @@
                           <div class="tile-stats">
                             <div class="icon"><i class="fa fa-user"></i>
                             </div>
-                            <div class="count"><?php echo count($usuarios) ; ?></div>
+                            <div class="count"><?php echo count($usuarios); ?></div>
 
                             <h3>Usuarios Activos</h3>
                             <p>Administrar a los usuarios</p>
@@ -60,7 +60,7 @@
                           <div class="tile-stats">
                             <div class="icon"><i class="fa fa-check-square-o"></i>
                             </div>
-                            <div class="count"><?php echo count($categoria_visitas) ; ?></div>
+                            <div class="count"><?php echo count($categoria_visitas); ?></div>
 
                             <h3>Categorias de visitas</h3>
                             <p>Administrar las categorias de las visitas</p>
@@ -70,10 +70,10 @@
                     </div>
                     <hr>
                     </hr>
-                    
+
                     <div class="row">
-                    <h4>Seleccione las fechas para filtrar los controles.</h4>
-                      <form action="<?php echo current_url(); ?>" method="POST" class="form-horizontal">
+                      <h4>Seleccione las fechas para filtrar los controles.</h4>
+                      <form action="<?php echo current_url(); ?>/buscar" method="POST" class="form-horizontal">
                         <div class="form-group">
                           <label for="" class="col-md-1 control-label">Desde: </label>
                           <div class="col-md-3">
@@ -88,12 +88,12 @@
                           <input type="submit" name="buscar" value="Buscar" class="btn btn-primary">
                           <a href="<?php echo base_url(); ?>" class="btn btn-danger">Restablecer</a>
                         </div>
-                      </form>
+
 
                     </div>
                     <hr>
                     </hr>
-                    
+
                     <div class="col-md-12">
                       <table id="example" class="table table-bordered btn-hover">
                         <thead>
