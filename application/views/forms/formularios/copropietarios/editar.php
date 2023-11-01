@@ -97,6 +97,17 @@
                                     <?php echo form_error("tipo_copropietario", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="estado_propietario" class="control-label col-md-4 col-sm-3 col-xs-12">Estado: </label>
+                                <div class="col-md-4 col-sm-6 col-xs-12">
+                                    <select id="estado_propietario" required name="estado_propietario" class="form-control col-md-3 col-xs-12">
+                                        <option value="Activo" <?php echo ($copropietario->estado_propietario == 'Activo') ? 'selected' : ''; ?>>Activo</option>
+                                        <option value="Obersvacion" <?php echo ($copropietario->estado_propietario == 'Obersvacion') ? 'selected' : ''; ?>>Obersvacion</option>
+                                        <option value="Mora" <?php echo ($copropietario->estado_propietario == 'Mora') ? 'selected' : ''; ?>>Mora</option>
+                                    </select>
+                                    <?php echo form_error("estado_propietario", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                                </div>
+                            </div>
                             <div class="in_solid"></div>
 
                             <br>

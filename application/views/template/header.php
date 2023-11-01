@@ -13,7 +13,7 @@ if (!$this->session->userdata('login')) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Control Condominio </title>
+  <title>Atlantis Condominio </title>
 
   <!-- Bootstrap -->
   <link href="<?php echo base_url(); ?>assets/template/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
