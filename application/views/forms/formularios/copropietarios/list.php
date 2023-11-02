@@ -83,9 +83,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="tipo_copropietario" class="control-label col-md-4 col-sm-3 col-xs-12">Tipo Copropietario: </label>
+                                <label for="tipo_copropietario" class="control-label col-md-4 col-sm-3 col-xs-12">Tipo Copropietario: * </label>
                                 <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <select id="tipo_copropietario" required name="tipo_copropietario" class="form-control col-md-3 col-xs-12">
+                                    <select id="tipo_copropietario" required name="tipo_copropietario"  required="required" class="form-control col-md-3 col-xs-12">
                                         <option value=""></option>
                                         <option value="Propietario">Propietario</option>
                                         <option value="Inquilino">Inquilino</option>
@@ -94,9 +94,9 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="estado_propietario" class="control-label col-md-4 col-sm-3 col-xs-12">Estado: </label>
+                                <label for="estado_propietario" class="control-label col-md-4 col-sm-3 col-xs-12">Estado: *</label>
                                 <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <select id="estado_propietario" required name="estado_propietario" class="form-control col-md-3 col-xs-12">
+                                    <select id="estado_propietario" required name="estado_propietario"  required="required" class="form-control col-md-3 col-xs-12">
                                         <option value="Activo">Activo</option>
                                         <option value="Obersvacion">Obersvacion</option>
                                         <option value="Mora">Mora</option>

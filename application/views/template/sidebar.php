@@ -4,7 +4,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="<?php echo base_url() ?>" class="site_title"><i class="fa fa-building"></i> <span>Atlantis Condominio</span></a>
+                        <a href="" class="site_title"><i class="fa fa-building"></i> <span>Atlantis Condominio</span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -35,9 +35,17 @@
                                             <li><a href="<?php echo base_url(); ?>Formularios/Copropietario"></i>Copropietario del condominio</a></li>
                                             <li><a href="<?php echo base_url() ?>Formularios/Categoria_visita">Cateogira de Visitas</a></li>
                                         <?php endif; ?>
-                                        <li><a href="<?php echo base_url() ?>Formularios/Control">Control del condominio</a></li>
 
                                     </ul>
+                                </li>
+                                <li><a><i class="fa fa-book"></i> Formularios guardias <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="<?php echo base_url() ?>Formularios/Control">Registro de ingresos</a></li>
+                                        <li><a href="">Registro de uso areas sociales</a></li>
+                                        <li><a href="">Libro de actas</a></li>
+
+                                    </ul>
+
                                 </li>
 
                             </ul>

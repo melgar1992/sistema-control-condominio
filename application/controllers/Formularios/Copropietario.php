@@ -21,7 +21,8 @@ class Copropietario extends BaseController
         $calle = $this->input->post('calle');
         $numero_interno = $this->input->post('numero_interno');
         $tipo_copropietario = $this->input->post('tipo_copropietario');
-        
+        $estado_propietario = $this->input->post('estado_propietario');
+
 
 
         $this->form_validation->set_rules("nombre", "Nombre", "required");
@@ -39,6 +40,8 @@ class Copropietario extends BaseController
         $this->form_validation->set_rules("calle", "Calle", "required");
         $this->form_validation->set_rules("numero_interno", "Numero_interno", "required");
         $this->form_validation->set_rules("tipo_copropietario", "Tipo_copropietario", "required");
+        $this->form_validation->set_rules("estado_propietario", "estado_propietario", "required");
+
 
 
 
@@ -57,9 +60,10 @@ class Copropietario extends BaseController
                 'calle' => $calle,
                 'numero_interno' => $numero_interno,
                 'tipo_copropietario' => $tipo_copropietario,
-                'estado' => "1"
+                'estado' => "1",
+                'estado_propietario' => $estado_propietario,
             );
-           
+
 
             if ($this->Copropietario_model->guardarCopropietario($datospersona, $datoscopropietarios)) {
                 redirect(base_url() . "Formularios/Copropietario");
@@ -90,6 +94,7 @@ class Copropietario extends BaseController
         $calle = $this->input->post('calle');
         $numero_interno = $this->input->post('numero_interno');
         $tipo_copropietario = $this->input->post('tipo_copropietario');
+        $estado_propietario = $this->input->post('estado_propietario');
 
 
         $copropietarioActual = $this->Copropietario_model->getCopropietario($id_copropietario);
@@ -120,6 +125,7 @@ class Copropietario extends BaseController
             $this->form_validation->set_rules("calle", "Calle", "required");
             $this->form_validation->set_rules("numero_interno", "Numero_interno", "required");
             $this->form_validation->set_rules("tipo_copropietario", "Tipo_copropietario", "required");
+            $this->form_validation->set_rules("estado_propietario", "estado_propietario", "required");
         }
 
         if ($this->form_validation->run()) {
@@ -130,14 +136,15 @@ class Copropietario extends BaseController
                 'apellidos' => $apellidos,
                 'carnet_identidad' => $ci,
                 'telefono' => $telefono,
-                
+
 
             );
             $datoscopropietarios = array(
-                'numero_vivienda'=>$numero_vivienda,
-                'calle'=>$calle,
-                'numero_interno'=>$numero_interno,
-                'tipo_copropietario'=>$tipo_copropietario,
+                'numero_vivienda' => $numero_vivienda,
+                'calle' => $calle,
+                'numero_interno' => $numero_interno,
+                'tipo_copropietario' => $tipo_copropietario,
+                'estado_propietario' => $estado_propietario,
                 'estado' => "1"
             );
 
@@ -159,5 +166,4 @@ class Copropietario extends BaseController
         $this->Copropietario_model->borrar($id_copropietario, $data);
         echo "Formularios/Copropietario";
     }
-
 }
