@@ -71,7 +71,7 @@
                                 </div>
                             </div>
                             <div class="form-group <?php echo !empty(form_error("calle")) ? 'has-error' : ''; ?>">
-                                <label for="calle" class="control-label col-md-4 col-sm-3 col-xs-12">Calle: <span class="required">*</span></label>
+                                <label for="calle" class="control-label col-md-4 col-sm-3 col-xs-12">Calle o edificio: <span class="required">*</span></label>
                                 <div class="col-md-4 col-sm-6 col-xs-12">
                                     <input type="text" name="calle" value="<?php echo !empty(form_error("calle")) ? set_value("calle") : $copropietario->calle ?>" id=calle required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                                     <?php echo form_error("calle", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
@@ -92,7 +92,8 @@
                                         <option value=""></option>
                                         <option value="Propietario" <?php echo ($copropietario->tipo_copropietario == 'Propietario') ? 'selected' : ''; ?>>Propietario</option>
                                         <option value="Inquilino" <?php echo ($copropietario->tipo_copropietario == 'Inquilino') ? 'selected' : ''; ?>>Inquilino</option>
-
+                                        <option value="Anticretico" <?php echo ($copropietario->tipo_copropietario == 'Anticretico') ? 'selected' : ''; ?>>Anticretico</option>
+                                        <option value="Alquiler por dia" <?php echo ($copropietario->tipo_copropietario == 'Alquiler por dia') ? 'selected' : ''; ?>>Alquiler por dia</option>
                                     </select>
                                     <?php echo form_error("tipo_copropietario", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                 </div>

@@ -33,17 +33,17 @@
                                         <?php endif; ?>
                                         <?php if (($this->session->userdata('rol') == 'administrador total') || ($this->session->userdata('rol') == 'administrador condominio')) : ?>
                                             <li><a href="<?php echo base_url(); ?>Formularios/Copropietario"></i>Copropietario del condominio</a></li>
-                                            <li><a href="<?php echo base_url() ?>Formularios/Categoria_visita">Cateogira de Visitas</a></li>
+                                            <li><a href="<?php echo base_url(); ?>Formularios/Categoria_visita">Cateogira de Visitas</a></li>
+                                            <li><a href="<?php echo base_url(); ?>Formularios/Movilidades_propietarios">Movilidades de propietarios</a></li>
                                         <?php endif; ?>
 
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-book"></i> Formularios guardias <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="<?php echo base_url() ?>Formularios/Control">Registro de ingresos</a></li>
-                                        <li><a href="">Registro de uso areas sociales</a></li>
-                                        <li><a href="">Libro de actas</a></li>
-
+                                        <li><a href="<?php echo base_url(); ?>Formularios/Control">Registro de ingresos</a></li>
+                                        <li><a href="<?php echo base_url(); ?>">Registro de uso areas sociales</a></li>
+                                        <li><a href="<?php echo base_url(); ?>">Libro de actas</a></li>
                                     </ul>
 
                                 </li>

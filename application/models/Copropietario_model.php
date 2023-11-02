@@ -19,18 +19,15 @@ class Copropietario_model extends CI_Model
 
         $datoscopropietarios['id_persona'] = $id_persona;
 
-       return $this->db->insert('copropietario', $datoscopropietarios);
-
-        
-
+        return $this->db->insert('copropietario', $datoscopropietarios);
     }
     public function validarCi($ci)
-    { 
+    {
         $this->db->select('c.estado, p.carnet_identidad');
         $this->db->from('copropietario c');
         $this->db->join('persona p', 'c.id_persona = p.id_persona');
-        $this->db->where('p.carnet_identidad',$ci);
-        $this->db->where('c.estado','1');
+        $this->db->where('p.carnet_identidad', $ci);
+        $this->db->where('c.estado', '1');
 
         $resultado = $this->db->get();
 
@@ -67,5 +64,15 @@ class Copropietario_model extends CI_Model
         $this->db->where("id_copropietario", $id_copropietario);
         return $this->db->update("copropietario", $data);
     }
+    //Funciones de movilidades de propietarios
 
+    public function getMovilidades_propietarios()
+    {
+        $this->db->select('c.id_copropietario, p.nombres, p.apellidos, p.telefono, c.numero_vivienda, c.calle , v.placa, v.marca, v.color');
+        $this->db->from('copropietario c');
+        $this->db->join('persona p', 'c.id_persona = p.id_persona');
+        $this->db->join('vehiculo v', 'c.id_vehiculo = v.id_vehiculo');
+        $this->db->where('c.estado', '1');
+        return $this->db->get()->result_array();
+    }
 }
