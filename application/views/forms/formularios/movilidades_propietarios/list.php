@@ -21,7 +21,7 @@
                        <div class="x_content">
                            <h4>Para poder ingresar los vehiculos de los propietarios, primero hay que registrar a los mismos.</h4>
                            <h4>Todos los campos con * son obligatorios.</h4>
-                           <form method="POST" action="<?php echo base_url(); ?>Formularios/Movilidades_propietarios/guardarMovilidad" id="control" class="form-horizontal form-label-left">
+                           <form method="POST" action="<?php echo base_url(); ?>Formularios/Movilidades_propietarios/guardarMovilidadPropietario" id="control" class="form-horizontal form-label-left">
                                <input type="hidden" value="<?php echo $this->session->userdata('rol'); ?>" name="rol" id="rol">
                                <input type="hidden" value="" name="id_copropietario" id="id_copropietario">
                                <div class="form-group <?php echo !empty(form_error("nombre")) ? 'has-error' : ''; ?>">
@@ -96,7 +96,6 @@
                                            <table id="tabla_vehiculos" class="table table-bordered btn-hover">
                                                <thead>
                                                    <tr>
-                                                       <th>#</th>
                                                        <th>Nombres</th>
                                                        <th>Apellidos</th>
                                                        <th>Telefono</th>

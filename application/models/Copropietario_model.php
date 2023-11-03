@@ -74,6 +74,16 @@ class Copropietario_model extends CI_Model
 
         return $this->db->get()->result_array();
     }
+    public function buscarCopropietariosXCi($ci)
+    {
+        $this->db->select('p.nombres, p.apellidos, p.carnet_identidad as label, p.telefono, c.*');
+        $this->db->from('copropietario c');
+        $this->db->join('persona p', 'c.id_persona = p.id_persona');
+        $this->db->where('c.estado', '1');
+        $this->db->like('p.carnet_identidad', $ci);
+
+        return $this->db->get()->result_array();
+    }
     //Funciones de movilidades de propietarios
 
     public function getMovilidades_propietarios()
@@ -81,8 +91,13 @@ class Copropietario_model extends CI_Model
         $this->db->select('c.id_copropietario, p.nombres, p.apellidos, p.telefono, c.numero_vivienda, c.calle , v.placa, v.marca, v.color');
         $this->db->from('copropietario c');
         $this->db->join('persona p', 'c.id_persona = p.id_persona');
-        $this->db->join('vehiculo v', 'c.id_vehiculo = v.id_vehiculo');
+        $this->db->join('vehiculo v', 'c.id_copropietario = v.id_copropietario');
         $this->db->where('c.estado', '1');
         return $this->db->get()->result_array();
+    }
+
+    public function guardarMovilidadPropietario($datosMovilidad)
+    {
+        return $this->db->insert('vehiculo', $datosMovilidad);
     }
 }

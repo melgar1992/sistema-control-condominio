@@ -17,4 +17,32 @@ class Movilidades_propietarios extends BaseController
         $vehiculos = $this->Copropietario_model->getMovilidades_propietarios();
         echo json_encode($vehiculos);
     }
+    public function guardarMovilidadPropietario()
+    {
+        $id_copropietario = $this->input->post('id_copropietario');
+        $placa = $this->input->post('placa');
+        $color = $this->input->post('color');
+        $marca = $this->input->post('marca');
+
+        $this->form_validation->set_rules("placa", "placa", "required");
+        $this->form_validation->set_rules("ci", "ci", "required");
+
+        if ($this->form_validation->run()) {
+
+
+            $datosMovilidad = array(
+                'id_copropietario' => $id_copropietario,
+                'placa' => $placa,
+                'color' => $color,
+                'marca' => $marca,
+            );
+            if ($this->Copropietario_model->guardarMovilidadPropietario($datosMovilidad)) {
+                redirect(base_url() . "Formularios/Movilidades_propietarios");
+            } else {
+                $this->session->set_flashdata("error", "No se pudo guardar la informacion");
+            }
+        } else {
+            $this->index();
+        }
+    }
 }
