@@ -43,7 +43,31 @@ $(document).ready(function () {
             "sProcesing": "Procesando...",
         }
     });
-
+    $("#nombre").autocomplete({
+		source: function (request, response) {
+			$.ajax({
+				url: base_url + "Formularios/Copropietario/buscarCopropietariosAjax",
+				type: "POST",
+				dataType: "json",
+				data: {
+					valor: request.term
+				},
+				success: function (data) {
+					response(data);
+				}
+			});
+		},
+		minLength: 3,
+		select: function (event, ui) {
+			data = ui.item.label + " " + ui.item.apellidos;
+			id_copropietario = ui.item.id_copropietario;
+			CI = ui.item.CI
+			$('#id_copropietario').val(id_copropietario);
+			$('#ci').val(ui.item.carnet_identidad);
+			$("#numero_vivienda").val(ui.item.numero_vivienda);
+		},
+	});
+    
 
     $(document).on('click', '.btn-borrar', function () {
         Swal.fire({

@@ -64,6 +64,16 @@ class Copropietario_model extends CI_Model
         $this->db->where("id_copropietario", $id_copropietario);
         return $this->db->update("copropietario", $data);
     }
+    public function buscarCopropietariosXNombre($nombre)
+    {
+        $this->db->select('p.nombres as label, p.apellidos, p.carnet_identidad, p.telefono, c.*');
+        $this->db->from('copropietario c');
+        $this->db->join('persona p', 'c.id_persona = p.id_persona');
+        $this->db->where('c.estado', '1');
+        $this->db->like('p.nombres', $nombre);
+
+        return $this->db->get()->result_array();
+    }
     //Funciones de movilidades de propietarios
 
     public function getMovilidades_propietarios()

@@ -166,4 +166,10 @@ class Copropietario extends BaseController
         $this->Copropietario_model->borrar($id_copropietario, $data);
         echo "Formularios/Copropietario";
     }
+    public function buscarCopropietariosAjax()
+    {
+        $nombre = $this->input->post('valor');
+        $propietario = $this->Copropietario_model->buscarCopropietariosXNombre($nombre);
+        echo json_encode($propietario);
+    }
 }
