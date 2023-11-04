@@ -23,7 +23,7 @@ $(document).ready(function () {
             "targets": -1,
             "data": 'id_copropietario',
             "render": function (data, type, row, meta) {
-                return "<div class='text-right'> <div class='btn-group'><button class='btn btn-warning btn-sm' value='" + data + "' id='btn-editar'><i class='fas fa-pencil-alt'></i> Editar</button><button class='btn btn-danger btn-sm' id='btn-borrar'><i class='fas fa-trash-alt'></i> Borrar</button></div></div>";
+                return "<div class='text-right'> <div class='btn-group'><button class='btn btn-warning btn-sm' value='" + data + "' id='btn-editar'><i class='fas fa-pencil-alt'></i> Editar</button><button class='btn btn-danger btn-sm' value='" + data + "' id='btn-borrar'><i class='fas fa-trash-alt'></i> Borrar</button></div></div>";
             }
         }],
         "language": {
@@ -161,7 +161,7 @@ $(document).ready(function () {
         },
     });
 
-    $(document).on('click', '.btn-borrar', function () {
+    $(document).on('click', '#btn-borrar', function () {
         Swal.fire({
             title: 'Esta seguro de elimar?',
             text: "Una vez elimina se perderan lso datos!",
@@ -177,7 +177,7 @@ $(document).ready(function () {
                 var id = $(this).val();
 
                 $.ajax({
-                    url: base_url + 'Formularios/Copropietario/borrar/' + id,
+                    url: base_url + 'Formularios/Movilidades_propietarios/eliminarMovilidadPropietario/' + id,
                     type: 'POST',
                     success: function (resp) {
 

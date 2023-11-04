@@ -35,6 +35,7 @@ class Movilidades_propietarios extends BaseController
                 'placa' => $placa,
                 'color' => $color,
                 'marca' => $marca,
+                'estado' => '1',
             );
             if ($this->Copropietario_model->guardarMovilidadPropietario($datosMovilidad)) {
                 redirect(base_url() . "Formularios/Movilidades_propietarios");
@@ -73,5 +74,13 @@ class Movilidades_propietarios extends BaseController
         } else {
             $this->index();
         }
+    }
+    public function eliminarMovilidadPropietario($id_vehiculo)
+    {
+        $datosMovilidad = array(
+            'estado' => '0'
+        );
+        $this->Copropietario_model->actualizarMovilidadPropietario($id_vehiculo, $datosMovilidad);
+        echo 'formularios/movilidades_propietarios';
     }
 }

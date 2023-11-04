@@ -93,6 +93,7 @@ class Copropietario_model extends CI_Model
         $this->db->join('persona p', 'c.id_persona = p.id_persona');
         $this->db->join('vehiculo v', 'c.id_copropietario = v.id_copropietario');
         $this->db->where('c.estado', '1');
+        $this->db->where('v.estado', '1');
         return $this->db->get()->result_array();
     }
 
@@ -105,4 +106,5 @@ class Copropietario_model extends CI_Model
         $this->db->where('id_vehiculo', $id_vehiculo);
         return $this->db->update('vehiculo', $datosMovilidad);
     }
+    
 }
