@@ -2,8 +2,6 @@ $(document).ready(function() {
     var base_url = $("#base_url").val();
 
     $(document).on('click', '.btn-borrar', function() {
-
-
         Swal.fire({
             title: 'Esta seguro de elimar?',
             text: "Una vez elimina el copropietario tambien se eliminaran todos los datos relacionados con el!",
