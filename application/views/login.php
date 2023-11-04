@@ -57,7 +57,7 @@
                                 <br />
 
                                 <div>
-                                    <h1><i class="fa fa-building"></i> Control Condominio </h1>
+                                    <h1><i class="fa fa-building"></i> Atlantis Condominio </h1>
 
                                 </div>
                             </div>

@@ -34,17 +34,17 @@
                                <div class="form-group <?php echo !empty(form_error("ci")) ? 'has-error' : ''; ?>">
                                    <label for="ci" class="control-label col-md-4 col-sm-3 col-xs-12">Buscar carnet de identidad: <span class="required">*</span></label>
                                    <div class="col-md-4 col-sm-6 col-xs-12">
-                                       <input type="number"  name="ci" value="<?php echo set_value('ci') ?>" id=ci required="required" class="form-control col-md-3 col-sm-3 col-xs-12">
+                                       <input type="number" name="ci" value="<?php echo set_value('ci') ?>" id=ci required="required" class="form-control col-md-3 col-sm-3 col-xs-12">
                                        <?php echo form_error("ci", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                    </div>
                                </div>
                                <div class="form-group <?php echo !empty(form_error("numero_vivienda")) ? 'has-error' : ''; ?>">
-                                <label for="numero_vivienda" class="control-label col-md-4 col-sm-3 col-xs-12">Numero de Vivienda:<span class="required">*</span></label>
-                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <input type="text" disabled name="numero_vivienda" value="<?php echo set_value('numero_vivienda') ?>" id=numero_vivienda required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
-                                    <?php echo form_error("numero_vivienda", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
-                                </div>
-                            </div>
+                                   <label for="numero_vivienda" class="control-label col-md-4 col-sm-3 col-xs-12">Numero de Vivienda:<span class="required">*</span></label>
+                                   <div class="col-md-4 col-sm-6 col-xs-12">
+                                       <input type="text" disabled name="numero_vivienda" value="<?php echo set_value('numero_vivienda') ?>" id=numero_vivienda required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
+                                       <?php echo form_error("numero_vivienda", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                                   </div>
+                               </div>
                                <div class="form-group <?php echo !empty(form_error("placa")) ? 'has-error' : ''; ?>">
                                    <label for="placa" class="control-label col-md-4 col-sm-3 col-xs-12">Numero de placa: *</label>
                                    <div class="col-md-4 col-sm-6 col-xs-12">
@@ -99,11 +99,12 @@
                                                        <th>Nombres</th>
                                                        <th>Apellidos</th>
                                                        <th>Telefono</th>
-                                                       <th>Numero vivienda</th>
-                                                       <th>Edificio</th>
+                                                       <th>Carnet identidad</th>
+                                                       <th>numero_vivienda</th>
                                                        <th>Placa</th>
                                                        <th>Marca</th>
                                                        <th>Color</th>
+                                                       <th></th>
                                                        <th>Opciones</th>
                                                    </tr>
                                                </thead>
@@ -128,80 +129,55 @@
                <div class="modal-header">
                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                        <span aria-hidden="true">&times;</span></button>
-                   <h4 class="modal-title">Editar Control</h4>
+                   <h4 class="modal-title">Editar Vehiculo</h4>
                </div>
-               <div class="modal-body">
-                   <form method="POST" action="<?php echo base_url(); ?>Formularios/control/editarControl" id="form-editar" class="form-horizontal form-label-left">
-
+               <div class="modal-body ui-front">
+                   <form method="POST" action="<?php echo base_url(); ?>Formularios/Movilidades_propietarios/editarMovilidadPropietario" id="form-editar" class="form-horizontal form-label-left">
+                       <input type="hidden" value="" name="id_vehiculo-editar" id="id_vehiculo-editar">
+                       <input type="hidden" value="" name="id_copropietario-editar" id="id_copropietario-editar">
 
                        <div class="form-group <?php echo !empty(form_error("nombre-editar")) ? 'has-error' : ''; ?>">
                            <label for="nombre-editar" class="control-label col-md-4 col-sm-3 col-xs-12">Nombres: <span class="required">*</span></label>
-                           <div class="col-md-4 col-sm-6 col-xs-12">
+                           <div class="col-md-5 col-sm-6 col-xs-12">
                                <input type="text" name="nombre-editar" value="<?php echo set_value('nombre') ?>" id=nombre-editar required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                                <?php echo form_error("nombre-editar", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                            </div>
                        </div>
-                       <div class="form-group <?php echo !empty(form_error("apellidos-editar")) ? 'has-error' : ''; ?>">
-                           <label for="apellidos-editar" class="control-label col-md-4 col-sm-3 col-xs-12">Apellidos: <span class="required">*</span></label>
-                           <div class="col-md-4 col-sm-6 col-xs-12">
-                               <input type="text" name="apellidos-editar" value="<?php echo set_value('apellidos-editar') ?>" id=apellidos-editar required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
-                               <?php echo form_error("apellidos-editar", "<span class='help-block col-md-4 col-xs-12 '>", "</span>"); ?>
-                           </div>
-                       </div>
                        <div class="form-group <?php echo !empty(form_error("ci-editar")) ? 'has-error' : ''; ?>">
                            <label for="ci-editar" class="control-label col-md-4 col-sm-3 col-xs-12">Carnet de Identidad: <span class="required">*</span></label>
-                           <div class="col-md-4 col-sm-6 col-xs-12">
+                           <div class="col-md-5 col-sm-6 col-xs-12">
                                <input type="number" name="ci-editar" value="<?php echo set_value('ci-editar') ?>" id=ci-editar required="required" class="form-control col-md-3 col-sm-3 col-xs-12">
                                <?php echo form_error("ci-editar", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                            </div>
                        </div>
-                       <div class="form-group <?php echo !empty(form_error("categoria_visita-editar")) ? 'has-error' : ''; ?>">
-                           <label for="categoria_visita-editar" class="control-label col-md-4 col-sm-3 col-xs-12">Tipos de categoria: <span class="required">*</span></label>
-                           <div class="col-md-4 col-sm-6 col-xs-12">
-                               <select name="categoria_visita-editar" id="categoria_visita-editar" required class="form-control col-md-3 col-sm-3 col-xs-12">
-                                   <option value=""></option>
-                                   <?php foreach ($categoria_visitas as $categoria_visita) : ?>
-                                       <option value="<?php echo $categoria_visita->id_categoria_visita; ?>"><?php echo $categoria_visita->nombre; ?></option>
-                                   <?php endforeach; ?>
-                               </select>
-                               <?php echo form_error("categoria_visita-editar", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                       <div class="form-group <?php echo !empty(form_error("numero_vivienda-editar")) ? 'has-error' : ''; ?>">
+                           <label for="numero_vivienda-editar" class="control-label col-md-4 col-sm-3 col-xs-12">Numero de Vivienda: <span class="required">*</span></label>
+                           <div class="col-md-5 col-sm-6 col-xs-12">
+                               <input type="text" disabled name="numero_vivienda-editar" value="<?php echo set_value('numero_vivienda-editar') ?>" id=numero_vivienda-editar required="required" class="form-control col-md-3 col-sm-3 col-xs-12">
+                               <?php echo form_error("numero_vivienda-editar", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                            </div>
                        </div>
                        <div class="form-group <?php echo !empty(form_error("placa-editar")) ? 'has-error' : ''; ?>">
                            <label for="placa-editar" class="control-label col-md-4 col-sm-3 col-xs-12">Numero de placa:</label>
-                           <div class="col-md-4 col-sm-6 col-xs-12">
+                           <div class="col-md-5 col-sm-6 col-xs-12">
                                <input type="text" name="placa-editar" value="<?php echo set_value('placa-editar') ?>" id=placa-editar class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                                <?php echo form_error("placa-editar", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                            </div>
                        </div>
                        <div class="form-group <?php echo !empty(form_error("color-editar")) ? 'has-error' : ''; ?>">
                            <label for="color-editar" class="control-label col-md-4 col-sm-3 col-xs-12">Color:</label>
-                           <div class="col-md-4 col-sm-6 col-xs-12">
+                           <div class="col-md-5 col-sm-6 col-xs-12">
                                <input type="text" name="color-editar" value="<?php echo set_value('color-editar') ?>" id=color-editar class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                                <?php echo form_error("color-editar", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                            </div>
                        </div>
                        <div class="form-group <?php echo !empty(form_error("marca-editar")) ? 'has-error' : ''; ?>">
                            <label for="marca-editar" class="control-label col-md-4 col-sm-3 col-xs-12">Marca de auto:</label>
-                           <div class="col-md-4 col-sm-6 col-xs-12">
+                           <div class="col-md-5 col-sm-6 col-xs-12">
                                <input type="text" name="marca-editar" value="<?php echo set_value('marca-editar') ?>" id=marca-editar class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                                <?php echo form_error("marca-editar", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                            </div>
                        </div>
-                       <div class="form-group <?php echo !empty(form_error("copropietario-editar")) ? 'has-error' : ''; ?>">
-                           <label for="copropietario-editar" class="control-label col-md-4 col-sm-3 col-xs-12">Copropietario : <span class="required">*</span></label>
-                           <div class="col-md-4 col-sm-6 col-xs-12">
-                               <select name="copropietario-editar" id="copropietario-editar" required class="form-control col-md-3 col-sm-3 col-xs-12">
-                                   <option value=""></option>
-                                   <?php foreach ($copropietarios as $copropietario) : ?>
-                                       <option value="<?php echo $copropietario->id_copropietario; ?>"><?php echo $copropietario->nombres . ' ' . $copropietario->apellidos; ?></option>
-                                   <?php endforeach; ?>
-                               </select>
-                               <?php echo form_error("copropietario-editar", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
-                           </div>
-                       </div>
-
-
                        <div class="ln_solid"></div>
 
                        <div class="form-group">

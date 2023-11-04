@@ -45,4 +45,33 @@ class Movilidades_propietarios extends BaseController
             $this->index();
         }
     }
+    public function editarMovilidadPropietario()
+    {
+        $id_copropietario = $this->input->post('id_copropietario-editar');
+        $id_vehiculo = $this->input->post('id_vehiculo-editar');
+        $placa = $this->input->post('placa-editar');
+        $color = $this->input->post('color-editar');
+        $marca = $this->input->post('marca-editar');
+
+        $this->form_validation->set_rules("placa-editar", "placa", "required");
+        $this->form_validation->set_rules("ci-editar", "ci", "required");
+
+        if ($this->form_validation->run()) {
+
+
+            $datosMovilidad = array(
+                'id_copropietario' => $id_copropietario,
+                'placa' => $placa,
+                'color' => $color,
+                'marca' => $marca,
+            );
+            if ($this->Copropietario_model->actualizarMovilidadPropietario($id_vehiculo, $datosMovilidad)) {
+                redirect(base_url() . "Formularios/Movilidades_propietarios");
+            } else {
+                $this->session->set_flashdata("error", "No se pudo guardar la informacion");
+            }
+        } else {
+            $this->index();
+        }
+    }
 }

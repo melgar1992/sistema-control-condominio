@@ -88,7 +88,7 @@ class Copropietario_model extends CI_Model
 
     public function getMovilidades_propietarios()
     {
-        $this->db->select('c.id_copropietario, p.nombres, p.apellidos, p.telefono, c.numero_vivienda, c.calle , v.placa, v.marca, v.color');
+        $this->db->select('c.id_copropietario, v.id_vehiculo, p.nombres, p.apellidos, p.carnet_identidad ,p.telefono, c.numero_vivienda, c.calle , v.placa, v.marca, v.color');
         $this->db->from('copropietario c');
         $this->db->join('persona p', 'c.id_persona = p.id_persona');
         $this->db->join('vehiculo v', 'c.id_copropietario = v.id_copropietario');
@@ -99,5 +99,10 @@ class Copropietario_model extends CI_Model
     public function guardarMovilidadPropietario($datosMovilidad)
     {
         return $this->db->insert('vehiculo', $datosMovilidad);
+    }
+    function actualizarMovilidadPropietario($id_vehiculo, $datosMovilidad)
+    {
+        $this->db->where('id_vehiculo', $id_vehiculo);
+        return $this->db->update('vehiculo', $datosMovilidad);
     }
 }
