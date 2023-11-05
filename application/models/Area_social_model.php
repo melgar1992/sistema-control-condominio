@@ -21,10 +21,11 @@ class Area_social_model extends CI_Model
     }
     public function getReservacionAreasSociales()
     {
-        $this->db->select('*');
+        $this->db->select('r.id_reserva_area_social, r.id_area_sociales, r.id_copropietario,a.nombre_area_social ,r.invitados, r.fecha_ini, concat(p.nombres, " ", p.apellidos) as nombre_apellidos, p.nombres, p.apellidos, p.carnet_identidad, c.numero_vivienda');
         $this->db->from('reserva_area_social r');
         $this->db->join('copropietario c', 'c.id_copropietario = r.id_copropietario');
         $this->db->join('persona p', 'c.id_persona = p.id_persona');
+        $this->db->join('area_sociales a', 'a.id_area_sociales = r.id_area_sociales');
         $this->db->where('r.estado', '1');
         return $this->db->get()->result_array();
     }

@@ -73,10 +73,47 @@ class Area_sociales extends BaseController
 
         $this->loadView('Reservacion_area_social', '/forms/formularios/reservacion_area_social/list', $data);
     }
+    public function obtenerReservacionesAreaSociales()
+    {
+        $reservaciones = $this->Area_social_model->getReservacionAreasSociales();
+        echo json_encode($reservaciones);
+    }
     public function buscarAreaSocialAjax()
     {
         $nombre = $this->input->post('valor');
         $areas_sociales = $this->Area_social_model->buscarAreaSocialXNombre($nombre);
         echo json_encode($areas_sociales);
+    }
+    public function guardarReservaAreaSocial()
+    {
+        $id_area_sociales = $this->input->post('id_area_sociales');
+        $id_copropietario = $this->input->post('id_copropietario');
+        $invitados = $this->input->post('invitados');
+        $fecha_ini = $this->input->post('fecha_ini');
+
+
+        $this->form_validation->set_rules("ci", "ci", "required");
+        $this->form_validation->set_rules("nombre_area_social", "nombre_area_social", "required");
+        $this->form_validation->set_rules("invitados", "invitados", "required");
+        $this->form_validation->set_rules("fecha_ini", "fecha_ini", "required");
+
+        if ($this->form_validation->run()) {
+
+            $datosAreaSocial = array(
+                'id_area_sociales' => $id_area_sociales,
+                'id_copropietario' => $id_copropietario,
+                'invitados' => $invitados,
+                'fecha_ini' => $fecha_ini,
+                'estado' => '1',
+            );
+
+            if ($this->Area_social_model->guardarReservacionAreaSociales($datosAreaSocial)) {
+                redirect(base_url() . "Formularios/Area_sociales/formularioReservacionAreaSocial");
+            } else {
+                $this->session->set_flashdata("error", "No se pudo guardar la informacion");
+            }
+        } else {
+            $this->formularioReservacionAreaSocial();
+        }
     }
 }

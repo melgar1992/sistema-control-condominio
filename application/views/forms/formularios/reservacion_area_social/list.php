@@ -21,7 +21,7 @@
                        <div class="x_content">
                            <h4>Para poder ingresar los vehiculos de los propietarios, primero hay que registrar a los mismos.</h4>
                            <h4>Todos los campos con * son obligatorios.</h4>
-                           <form method="POST" action="<?php echo base_url(); ?>Formularios/Movilidades_propietarios/guardarMovilidadPropietario" id="control" class="form-horizontal form-label-left">
+                           <form method="POST" action="<?php echo base_url(); ?>Formularios/Area_sociales/guardarReservaAreaSocial" id="control" class="form-horizontal form-label-left">
                                <input type="hidden" value="<?php echo $this->session->userdata('rol'); ?>" name="rol" id="rol">
                                <input type="hidden" value="" name="id_copropietario" id="id_copropietario">
                                <input type="hidden" value="" name="id_area_sociales" id="id_area_sociales">
@@ -94,17 +94,16 @@
                                            <div class="clearfix"></div>
                                        </div>
                                        <div class="x_content">
-                                           <table id="tabla_vehiculos" class="table table-bordered btn-hover">
+                                           <table id="tabla_reservas" class="table table-bordered btn-hover">
                                                <thead>
                                                    <tr>
-                                                       <th>Nombres</th>
-                                                       <th>Apellidos</th>
-                                                       <th>Telefono</th>
+                                                       <th>Nombres Apellidos</th>
                                                        <th>Carnet identidad</th>
                                                        <th>numero_vivienda</th>
-                                                       <th>Placa</th>
-                                                       <th>Marca</th>
-                                                       <th>Color</th>
+                                                       <th>Area Social</th>
+                                                       <th>Cantidad invitados</th>
+                                                       <th>Fecha</th>
+                                                       <th></th>
                                                        <th></th>
                                                        <th>Opciones</th>
                                                    </tr>
