@@ -116,4 +116,40 @@ class Area_sociales extends BaseController
             $this->formularioReservacionAreaSocial();
         }
     }
+    public function actualizarReservaAreaSocial()
+    {
+        $invitados = $this->input->post('invitados-editar');
+        $fecha_ini = $this->input->post('fecha_ini-editar');
+        $id_reserva_area_social = $this->input->post('id_reserva_area_social-editar');
+        $id_area_sociales = $this->input->post('id_area_sociales-editar');
+        $id_copropietario = $this->input->post('id_copropietario-editar');
+
+        $this->form_validation->set_rules("nombre-editar", "nombre-editar", "required");
+        if ($this->form_validation->run()) {
+
+            $datosAreaSocial = array(
+                'id_area_sociales' => $id_area_sociales,
+                'id_copropietario' => $id_copropietario,
+                'invitados' => $invitados,
+                'fecha_ini' => $fecha_ini,
+            );
+
+            if ($this->Area_social_model->actualizarReservacionAreaSociales($id_reserva_area_social, $datosAreaSocial)) {
+                redirect(base_url() . "Formularios/Area_sociales/formularioReservacionAreaSocial");
+            } else {
+                $this->session->set_flashdata("error", "No se pudo actualizar la informacion");
+                redirect(base_url() . "Formularios/Area_sociales/formularioReservacionAreaSocial");
+            }
+        } else {
+            $this->formularioReservacionAreaSocial();
+        }
+    }
+    public function borrarReserva($id_reserva_area_social)
+    {
+        $data = array(
+            'estado' => "0",
+        );
+        $this->Area_social_model->actualizarReservacionAreaSociales($id_reserva_area_social, $data);
+        echo "Formularios/Area_sociales/formularioReservacionAreaSocial";
+    }
 }

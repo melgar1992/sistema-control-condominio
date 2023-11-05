@@ -6,6 +6,7 @@ class Area_social_model extends CI_Model
         $this->db->select('*');
         $this->db->from('area_sociales');
         $this->db->where('estado', '1');
+        $this->db->limit('100');
         return $this->db->get()->result_array();
     }
 
@@ -27,6 +28,7 @@ class Area_social_model extends CI_Model
         $this->db->join('persona p', 'c.id_persona = p.id_persona');
         $this->db->join('area_sociales a', 'a.id_area_sociales = r.id_area_sociales');
         $this->db->where('r.estado', '1');
+        $this->db->limit('100');
         return $this->db->get()->result_array();
     }
     public function guardarReservacionAreaSociales($datos)

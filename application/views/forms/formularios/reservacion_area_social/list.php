@@ -132,8 +132,9 @@
                    <h4 class="modal-title">Editar Vehiculo</h4>
                </div>
                <div class="modal-body ui-front">
-                   <form method="POST" action="<?php echo base_url(); ?>Formularios/Movilidades_propietarios/editarMovilidadPropietario" id="form-editar" class="form-horizontal form-label-left">
-                       <input type="hidden" value="" name="id_vehiculo-editar" id="id_vehiculo-editar">
+                   <form method="POST" action="<?php echo base_url(); ?>Formularios/Area_sociales/actualizarReservaAreaSocial" id="form-editar" class="form-horizontal form-label-left">
+                       <input type="hidden" value="" name="id_reserva_area_social-editar" id="id_reserva_area_social-editar">
+                       <input type="hidden" value="" name="id_area_sociales-editar" id="id_area_sociales-editar">
                        <input type="hidden" value="" name="id_copropietario-editar" id="id_copropietario-editar">
 
                        <div class="form-group <?php echo !empty(form_error("nombre-editar")) ? 'has-error' : ''; ?>">
@@ -157,29 +158,29 @@
                                <?php echo form_error("numero_vivienda-editar", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                            </div>
                        </div>
-                       <div class="form-group <?php echo !empty(form_error("placa-editar")) ? 'has-error' : ''; ?>">
-                           <label for="placa-editar" class="control-label col-md-4 col-sm-3 col-xs-12">Numero de placa:</label>
+                       <div class="form-group <?php echo !empty(form_error("nombre_area_social-editar")) ? 'has-error' : ''; ?>">
+                           <label for="nombre_area_social-editar" class="control-label col-md-4 col-sm-3 col-xs-12">Area social: <span class="required">*</span></label>
                            <div class="col-md-5 col-sm-6 col-xs-12">
-                               <input type="text" name="placa-editar" value="<?php echo set_value('placa-editar') ?>" id=placa-editar class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
-                               <?php echo form_error("placa-editar", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                               <input type="text"  name="nombre_area_social-editar" value="<?php echo set_value('nombre_area_social-editar') ?>" id=nombre_area_social-editar required="required" class="form-control col-md-3 col-sm-3 col-xs-12">
+                               <?php echo form_error("nombre_area_social-editar", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                            </div>
                        </div>
-                       <div class="form-group <?php echo !empty(form_error("color-editar")) ? 'has-error' : ''; ?>">
-                           <label for="color-editar" class="control-label col-md-4 col-sm-3 col-xs-12">Color:</label>
+                       <div class="form-group <?php echo !empty(form_error("invitados-editar")) ? 'has-error' : ''; ?>">
+                           <label for="invitados-editar" class="control-label col-md-4 col-sm-3 col-xs-12">Cantidad invitados: <span class="required">*</span></label>
                            <div class="col-md-5 col-sm-6 col-xs-12">
-                               <input type="text" name="color-editar" value="<?php echo set_value('color-editar') ?>" id=color-editar class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
-                               <?php echo form_error("color-editar", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                               <input type="number" name="invitados-editar" value="<?php echo set_value('invitados-editar') ?>" id=invitados-editar required="required" class="form-control col-md-3 col-sm-3 col-xs-12">
+                               <?php echo form_error("invitados-editar", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                            </div>
                        </div>
-                       <div class="form-group <?php echo !empty(form_error("marca-editar")) ? 'has-error' : ''; ?>">
-                           <label for="marca-editar" class="control-label col-md-4 col-sm-3 col-xs-12">Marca de auto:</label>
+                       <div class="form-group <?php echo !empty(form_error("fecha_ini-editar")) ? 'has-error' : ''; ?>">
+                           <label for="fecha_ini-editar" class="control-label col-md-4 col-sm-3 col-xs-12">Fecha: <span class="required">*</span></label>
                            <div class="col-md-5 col-sm-6 col-xs-12">
-                               <input type="text" name="marca-editar" value="<?php echo set_value('marca-editar') ?>" id=marca-editar class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
-                               <?php echo form_error("marca-editar", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                               <input type="date" name="fecha_ini-editar" value="<?php echo set_value('fecha_ini-editar') ?>" id=fecha_ini-editar required="required" class="form-control col-md-3 col-sm-3 col-xs-12">
+                               <?php echo form_error("fecha_ini-editar", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                            </div>
                        </div>
-                       <div class="ln_solid"></div>
 
+                       <div class="ln_solid"></div>
                        <div class="form-group">
 
                            <div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-5">
@@ -188,6 +189,7 @@
 
                            </div>
                        </div>
+
                    </form>
 
                </div>
