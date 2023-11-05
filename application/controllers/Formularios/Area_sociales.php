@@ -65,4 +65,18 @@ class Area_sociales extends BaseController
         $this->Area_social_model->actualizar($id_area_social, $data);
         echo "Formularios/Area_sociales";
     }
+    public function formularioReservacionAreaSocial()
+    {
+        $data = array(
+            'reserva_area_social' => $this->Area_social_model->getReservacionAreasSociales(),
+        );
+
+        $this->loadView('Reservacion_area_social', '/forms/formularios/reservacion_area_social/list', $data);
+    }
+    public function buscarAreaSocialAjax()
+    {
+        $nombre = $this->input->post('valor');
+        $areas_sociales = $this->Area_social_model->buscarAreaSocialXNombre($nombre);
+        echo json_encode($areas_sociales);
+    }
 }

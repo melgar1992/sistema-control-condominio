@@ -8,10 +8,6 @@
                     </div>
 
                     <div class="clearfix"></div>
-
-
-
-
                     <!-- sidebar menu -->
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section active">
@@ -36,6 +32,8 @@
                                             <li><a href="<?php echo base_url(); ?>Formularios/Categoria_visita">Cateogira de visitas</a></li>
                                             <li><a href="<?php echo base_url(); ?>Formularios/Movilidades_propietarios">Movilidades de propietarios</a></li>
                                             <li><a href="<?php echo base_url(); ?>Formularios/Area_sociales">Areas sociales</a></li>
+                                            <li><a href="<?php echo base_url(); ?>Formularios/Area_sociales/formularioReservacionAreaSocial">Reservacion de areas sociales</a></li>
+
                                         <?php endif; ?>
 
                                     </ul>

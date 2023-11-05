@@ -28,6 +28,8 @@ if (!$this->session->userdata('login')) {
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/datatables-export/css/buttons.dataTables.min.css">
   <!-- DataTables-->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <!-- bootstrap-datetimepicker -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css">
   <!-- Migue css-->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/migue.css">
 

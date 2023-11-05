@@ -38,6 +38,10 @@
     <script src="<?php echo base_url(); ?>assets/template/chartjs/Chart.js"></script>
     <!-- Jquery Print, sirve para imprimir -->
     <script src="<?php echo base_url(); ?>assets/template/jquery-print/jquery.print.js"></script>
+    <!-- Jquery datepicker -->
+    <script src="<?php echo base_url(); ?>assets/template/moment/min/moment.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/template/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+
 
     <input type="hidden" value="<?php echo base_url() ?>" id="base_url">
     <script>

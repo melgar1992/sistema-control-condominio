@@ -71,8 +71,6 @@ $(document).ready(function () {
                         window.location.href = base_url + resp;
                     }
                 })
-
-
             }
         })
 
