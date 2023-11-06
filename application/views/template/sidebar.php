@@ -42,7 +42,7 @@
                                     <ul class="nav child_menu">
                                         <li><a href="<?php echo base_url(); ?>Formularios/Control">Registro de ingresos</a></li>
                                         <li><a href="<?php echo base_url(); ?>">Registro de uso areas sociales</a></li>
-                                        <li><a href="<?php echo base_url(); ?>">Libro de actas</a></li>
+                                        <li><a href="<?php echo base_url(); ?>Formularios/Libro_guardia">Libro de actas</a></li>
                                     </ul>
 
                                 </li>

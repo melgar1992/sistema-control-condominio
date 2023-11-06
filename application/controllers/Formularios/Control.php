@@ -34,7 +34,6 @@ class Control extends BaseController
       'nombres' => $nombre,
       'apellidos' => $apellidos,
       'carnet_identidad' => $ci,
-
     );
     $datosvehiculo = array(
       'placa' => $placa,
