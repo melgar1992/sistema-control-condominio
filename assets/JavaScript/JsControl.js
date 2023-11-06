@@ -118,7 +118,7 @@ $(document).ready(function () {
 						text: respuesta['respuesta'],
 						type: 'success'
 					});
-
+					$('#fcontrol').trigger('reset');
 				} else {
 					swal({
 						title: 'Error',
@@ -172,8 +172,6 @@ $(document).ready(function () {
 
 
 	});
-
-
 	$(document).on('click', '.btn-editar', function () {
 
 		fila = $(this).closest('tr');
@@ -186,9 +184,9 @@ $(document).ready(function () {
 		color = fila.find('td:eq(6)').text();
 		marca = fila.find('td:eq(7)').text();
 		id_copropietario = fila.find('td:eq(8)').text();
-		$('#categoria_visita-editar').html($('#categoria_visita-editar').html().replace('selected',''));
-		$('#copropietario-editar').html($('#copropietario-editar').html().replace('selected',''));
-	
+		$('#categoria_visita-editar').html($('#categoria_visita-editar').html().replace('selected', ''));
+		$('#copropietario-editar').html($('#copropietario-editar').html().replace('selected', ''));
+
 
 		$('#form-editar').trigger('reset');
 		$("#nombre-editar").val(nombre)
@@ -272,8 +270,6 @@ $(document).ready(function () {
 			title: 'Reporte',
 		});
 	});
-
-
 	$(document).on('click', '.btn-borrar', function () {
 
 
@@ -314,6 +310,69 @@ $(document).ready(function () {
 		})
 
 	})
-
+	$("#nombre_propietario").autocomplete({
+		source: function (request, response) {
+			$.ajax({
+				url: base_url + "Formularios/Copropietario/buscarCopropietariosAjax",
+				type: "POST",
+				dataType: "json",
+				data: {
+					valor: request.term
+				},
+				success: function (data) {
+					response(data);
+				}
+			});
+		},
+		minLength: 3,
+		select: function (event, ui) {
+			data = ui.item.label + " " + ui.item.apellidos;
+			id_copropietario = ui.item.id_copropietario;
+			$('#copropietario').val(id_copropietario);
+		},
+	});
+	$("#nombre").autocomplete({
+		source: function (request, response) {
+			$.ajax({
+				url: base_url + "Formularios/Personas/buscarPersonaNombre",
+				type: "POST",
+				dataType: "json",
+				data: {
+					valor: request.term
+				},
+				success: function (data) {
+					response(data);
+				}
+			});
+		},
+		minLength: 3,
+		select: function (event, ui) {
+			data = ui.item.nombres;
+			$('#apellidos').val(ui.item.apellidos);
+			$('#ci').val(ui.item.carnet_identidad);
+		},
+		
+	});
+	$("#ci").autocomplete({
+		source: function (request, response) {
+			$.ajax({
+				url: base_url + "Formularios/Personas/buscarPersonaCi",
+				type: "POST",
+				dataType: "json",
+				data: {
+					valor: request.term
+				},
+				success: function (data) {
+					response(data);
+				}
+			});
+		},
+		minLength: 3,
+		select: function (event, ui) {
+			$('#nombre').val(ui.item.nombres);
+			$('#apellidos').val(ui.item.apellidos);
+		},
+		
+	});
 
 })

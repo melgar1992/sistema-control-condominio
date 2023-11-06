@@ -45,7 +45,7 @@
                                    </div>
                                </div>
                                <div class="form-group <?php echo !empty(form_error("categoria_visita")) ? 'has-error' : ''; ?>">
-                                   <label for="categoria_visita" class="control-label col-md-4 col-sm-3 col-xs-12">Tipos de categoria: <span class="required">*</span></label>
+                                   <label for="categoria_visita" class="control-label col-md-4 col-sm-3 col-xs-12">Tipos de Visita: <span class="required">*</span></label>
                                    <div class="col-md-4 col-sm-6 col-xs-12">
                                        <select name="categoria_visita" id="categoria_visita" required class="form-control col-md-3 col-sm-3 col-xs-12">
                                            <option value=""></option>
@@ -80,12 +80,8 @@
                                <div class="form-group <?php echo !empty(form_error("copropietario")) ? 'has-error' : ''; ?>">
                                    <label for="copropietario" class="control-label col-md-4 col-sm-3 col-xs-12">Copropietarios : <span class="required">*</span></label>
                                    <div class="col-md-4 col-sm-6 col-xs-12">
-                                       <select name="copropietario" id="copropietario" required class="form-control col-md-3 col-sm-3 col-xs-12">
-                                           <option value=""></option>
-                                           <?php foreach ($copropietarios as $copropietario) : ?>
-                                               <option value="<?php echo $copropietario->id_copropietario; ?>"><?php echo $copropietario->nombres . ' ' . $copropietario->apellidos; ?></option>
-                                           <?php endforeach; ?>
-                                       </select>
+                                       <input type="hidden"  name="copropietario" value="<?php echo set_value('copropietario') ?>" id=copropietario class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
+                                       <input type="text" name="nombre_propietario" value="<?php echo set_value('nombre_propietario') ?>" id=nombre_propietario required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                                        <?php echo form_error("copropietario", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                    </div>
                                </div>
