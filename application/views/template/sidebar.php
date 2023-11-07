@@ -41,7 +41,7 @@
                                 <li><a><i class="fa fa-book"></i> Formularios guardias <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="<?php echo base_url(); ?>Formularios/Control">Registro de ingresos</a></li>
-                                        <li><a href="<?php echo base_url(); ?>">Registro de uso areas sociales</a></li>
+                                        <li><a href="<?php echo base_url(); ?>Formularios/Control_area_copropietarios">Registro de uso areas sociales</a></li>
                                         <li><a href="<?php echo base_url(); ?>Formularios/Libro_guardia">Libro de actas</a></li>
                                     </ul>
 
