@@ -75,75 +75,83 @@
                       <h4>Seleccione las fechas para filtrar los controles.</h4>
                       <form action="<?php echo current_url(); ?>/buscar" method="POST" class="form-horizontal">
                         <div class="form-group">
-                          <label for="" class="col-md-1 control-label">Desde: </label>
+                          <label for="" class="col-md-1 col-xs-12 control-label">Desde: </label>
                           <div class="col-md-3">
-                            <input type="date" class="form-control" name="fechainicio" value="<?php echo !empty($fechainicio) ? $fechainicio : ''; ?>">
-
+                            <input type="date" class="form-control col-xs-12" name="fechainicio" value="<?php echo !empty($fechainicio) ? $fechainicio : ''; ?>">
                           </div>
-                          <label for="" class="col-md-1 control-label">Hasta: </label>
+                          <label for="" class="col-md-1 col-xs-12 control-label">Hasta: </label>
                           <div class="col-md-3">
-                            <input type="date" class="form-control" name="fechafin" value="<?php echo !empty($fechafin) ? $fechafin : ''; ?>">
-
-                          </div class="col-md-4">
-                          <input type="submit" name="buscar" value="Buscar" class="btn btn-primary">
-                          <a href="<?php echo base_url(); ?>" class="btn btn-danger">Restablecer</a>
+                            <input type="date" class="form-control col-xs-12" name="fechafin" value="<?php echo !empty($fechafin) ? $fechafin : ''; ?>">
+                          </div>
+                          <div class="col-md-4">
+                            <input type="submit" name="buscar" value="Buscar" class="btn btn-primary">
+                            <a href="<?php echo base_url(); ?>" class="btn btn-danger">Restablecer</a>
+                          </div>
                         </div>
-
 
                     </div>
                     <hr>
                     </hr>
+                    <div class="row">
+                      <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                          <div class="x_title">
+                            <h2>Tabla de Ingresos</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                              </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                          </div>
+                          <div class="x_content">
+                            <table id="example" style="width: 100%;" class="table table-bordered btn-hover ">
+                              <thead>
+                                <tr>
+                                  <th>#</th>
+                                  <th>Nombres</th>
+                                  <th>Apellidos</th>
+                                  <th>Carnet de Indentidad</th>
+                                  <th>Categoria Visita</th>
+                                  <th>Placa</th>
+                                  <th>Color</th>
+                                  <th>Marca</th>
+                                  <th>Copropietario</th>
+                                  <th>Fecha hora Ingreso</th>
+                                  <th>Fecha hora Salida</th>
+                                  <th>Usuario responsable</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <?php if (!empty($control_visitas)) : ?>
+                                  <?php foreach ($control_visitas as $control_visita) : ?>
 
-                    <div class="col-md-12">
-                      <table id="example" class="table table-bordered btn-hover">
-                        <thead>
-                          <tr>
-                            <th>#</th>
-                            <th>Nombres</th>
-                            <th>Apellidos</th>
-                            <th>Carnet de Indentidad</th>
-                            <th>Categoria Visita</th>
-                            <th>Placa</th>
-                            <th>Color</th>
-                            <th>Marca</th>
-                            <th>Copropietario</th>
-                            <th>Fecha hora Ingreso</th>
-                            <th>Fecha hora Salida</th>
-                            <th>Usuario responsable</th>
+                                    <tr>
+                                      <td><?php echo $control_visita->id_control_entrada_salida; ?></td>
+                                      <td><?php echo $control_visita->nombres; ?></td>
+                                      <td><?php echo $control_visita->apellidos; ?></td>
+                                      <td><?php echo $control_visita->carnet_identidad; ?></td>
+                                      <td><?php echo $control_visita->nombre_visita; ?></td>
+                                      <td><?php echo $control_visita->placa; ?></td>
+                                      <td><?php echo $control_visita->color; ?></td>
+                                      <td><?php echo $control_visita->marca; ?></td>
+                                      <td><?php echo $control_visita->nombre_copropietario . ' ' . $control_visita->apellidos_copropietario; ?></td>
+                                      <td><?php echo $control_visita->fecha_hora_ingreso; ?></td>
+                                      <td><?php echo $control_visita->fecha_hora_salida; ?></td>
+                                      <td><?php echo $control_visita->nombre_usuarios . ' ' . $control_visita->apellidos_usuarios; ?></td>
+                                    </tr>
+                                  <?php endforeach; ?>
+                                <?php endif; ?>
 
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <?php if (!empty($control_visitas)) : ?>
-                            <?php foreach ($control_visitas as $control_visita) : ?>
-
-                              <tr>
-                                <td><?php echo $control_visita->id_control_entrada_salida; ?></td>
-                                <td><?php echo $control_visita->nombres; ?></td>
-                                <td><?php echo $control_visita->apellidos; ?></td>
-                                <td><?php echo $control_visita->carnet_identidad; ?></td>
-                                <td><?php echo $control_visita->nombre_visita; ?></td>
-                                <td><?php echo $control_visita->placa; ?></td>
-                                <td><?php echo $control_visita->color; ?></td>
-                                <td><?php echo $control_visita->marca; ?></td>
-                                <td><?php echo $control_visita->nombre_copropietario . ' ' . $control_visita->apellidos_copropietario; ?></td>
-                                <td><?php echo $control_visita->fecha_hora_ingreso; ?></td>
-                                <td><?php echo $control_visita->fecha_hora_salida; ?></td>
-                                <td><?php echo $control_visita->nombre_usuarios . ' ' . $control_visita->apellidos_usuarios; ?></td>
-                              </tr>
-                            <?php endforeach; ?>
-                          <?php endif; ?>
-
-                        </tbody>
-                      </table>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        </div>
         </div>
         <!-- /page content -->

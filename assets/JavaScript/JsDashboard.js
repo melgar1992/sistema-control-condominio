@@ -1,6 +1,7 @@
 $(document).ready(function () {
 	$('#example').DataTable({
 		dom: 'Bfrtip',
+        scrollX: true,
 		buttons: [{
 				extend: 'excelHtml5',
 				title: "Listado de Control",
@@ -9,13 +10,6 @@ $(document).ready(function () {
 				}
 
 			},
-			{
-				extend: 'pdfHtml5',
-				title: "Listado de Control",
-				exportOptions: {
-					columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-				}
-            },
             {
 				extend: 'print',
 				title: "Listado de Control",
@@ -40,7 +34,7 @@ $(document).ready(function () {
             },
             "sProcesing": "Procesando...",
         },
-        responsive: "true",
+        
         "order": [
             [0, "desc"]
         ],
