@@ -6,7 +6,7 @@ class Libro_guardia extends BaseController
     public function index()
     {
         $data = array();
-        $this->loadView('Libro_guardia', '/forms/formularios/Libro_guardia/list', $data);
+        $this->loadView('Libro_guardia', '/forms/formularios/libro_guardia/list', $data);
     }
     public  function guardarActa()
     {
