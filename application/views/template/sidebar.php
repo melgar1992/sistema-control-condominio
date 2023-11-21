@@ -29,7 +29,7 @@
                                         <?php endif; ?>
                                         <?php if (($this->session->userdata('rol') == 'administrador total') || ($this->session->userdata('rol') == 'administrador condominio')) : ?>
                                             <li><a href="<?php echo base_url(); ?>Formularios/Copropietario"></i>Copropietario del condominio</a></li>
-                                            <li><a href="<?php echo base_url(); ?>Formularios/Categoria_visita">Cateogira de visitas</a></li>
+                                            <li><a href="<?php echo base_url(); ?>Formularios/Categoria_visita">Categoria de visitas</a></li>
                                             <li><a href="<?php echo base_url(); ?>Formularios/Movilidades_propietarios">Movilidades de propietarios</a></li>
                                             <li><a href="<?php echo base_url(); ?>Formularios/Area_sociales">Areas sociales</a></li>
                                             <li><a href="<?php echo base_url(); ?>Formularios/Area_sociales/formularioReservacionAreaSocial">Reservacion de areas sociales</a></li>
