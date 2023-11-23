@@ -88,6 +88,31 @@ $(document).ready(function () {
             $("#numero_vivienda").val(ui.item.numero_vivienda);
         },
     });
+    $("#numero_vivienda").autocomplete({
+		source: function (request, response) {
+			$.ajax({
+				url: base_url + "Formularios/Copropietario/buscarCopropietariosNumeroViviendaAjax",
+				type: "POST",
+				dataType: "json",
+				data: {
+					valor: request.term
+				},
+				success: function (data) {
+					response(data);
+				}
+			});
+		},
+		minLength: 2,
+		select: function (event, ui) {
+			event.preventDefault();
+			id_copropietario = ui.item.id_copropietario;
+            $('#id_copropietario').val(id_copropietario);
+			$('#nombre').val(ui.item.nombres + " " + ui.item.apellidos);
+            $('#ci').val(ui.item.carnet_identidad);
+			$('#numero_vivienda').val(ui.item.numero_vivienda);
+		},
+
+	});
     $("#nombre_area_social").autocomplete({
         source: function (request, response) {
             $.ajax({
@@ -150,7 +175,7 @@ $(document).ready(function () {
                         text: respuesta['respuesta'],
                         type: 'success'
                     });
-                    $('#fcontrol').trigger('reset');
+                    $('#control').trigger('reset');
                 } else {
                     swal({
                         title: 'Error',
@@ -232,6 +257,31 @@ $(document).ready(function () {
             $("#numero_vivienda-editar").val(ui.item.numero_vivienda);
         },
     });
+    $("#numero_vivienda-editar").autocomplete({
+		source: function (request, response) {
+			$.ajax({
+				url: base_url + "Formularios/Copropietario/buscarCopropietariosNumeroViviendaAjax",
+				type: "POST",
+				dataType: "json",
+				data: {
+					valor: request.term
+				},
+				success: function (data) {
+					response(data);
+				}
+			});
+		},
+		minLength: 2,
+		select: function (event, ui) {
+			event.preventDefault();
+			id_copropietario = ui.item.id_copropietario;
+            $('#id_copropietario-editar').val(id_copropietario);
+			$('#nombre-editar').val(ui.item.nombres + " " + ui.item.apellidos);
+            $('#ci-editar').val(ui.item.carnet_identidad);
+			$('#numero_vivienda-editar').val(ui.item.numero_vivienda);
+		},
+
+	});
     $("#nombre_area_social-editar").autocomplete({
         source: function (request, response) {
             $.ajax({

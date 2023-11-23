@@ -118,7 +118,7 @@ $(document).ready(function () {
 						text: respuesta['respuesta'],
 						type: 'success'
 					});
-					$('#fcontrol').trigger('reset');
+					$('#control').trigger('reset');
 				} else {
 					swal({
 						title: 'Error',
@@ -402,30 +402,6 @@ $(document).ready(function () {
 		},
 
 	});
-	$("#numero_vivienda-editar").autocomplete({
-		source: function (request, response) {
-			$.ajax({
-				url: base_url + "Formularios/Copropietario/buscarCopropietariosNumeroViviendaAjax",
-				type: "POST",
-				dataType: "json",
-				data: {
-					valor: request.term
-				},
-				success: function (data) {
-					response(data);
-				}
-			});
-		},
-		minLength: 1,
-		select: function (event, ui) {
-			event.preventDefault();
-			id_copropietario = ui.item.id_copropietario;
-			$('#copropietario').val(id_copropietario);
-			$('#nombre_propietario').val(ui.item.nombres);
-			$('#numero_vivienda').val(ui.item.numero_vivienda);
 
-		},
-
-	});
 
 })

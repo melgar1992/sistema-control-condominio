@@ -39,9 +39,9 @@
                                    </div>
                                </div>
                                <div class="form-group <?php echo !empty(form_error("numero_vivienda")) ? 'has-error' : ''; ?>">
-                                   <label for="numero_vivienda" class="control-label col-md-4 col-sm-3 col-xs-12">Numero de Vivienda:<span class="required">*</span></label>
+                                   <label for="numero_vivienda" class="control-label col-md-4 col-sm-3 col-xs-12">Buscar de Vivienda:<span class="required">*</span></label>
                                    <div class="col-md-4 col-sm-6 col-xs-12">
-                                       <input type="text" disabled name="numero_vivienda" value="<?php echo set_value('numero_vivienda') ?>" id=numero_vivienda required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
+                                       <input type="text" name="numero_vivienda" value="<?php echo set_value('numero_vivienda') ?>" id=numero_vivienda required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                                        <?php echo form_error("numero_vivienda", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                    </div>
                                </div>
@@ -139,7 +139,7 @@
                        <div class="form-group <?php echo !empty(form_error("numero_vivienda-editar")) ? 'has-error' : ''; ?>">
                            <label for="numero_vivienda-editar" class="control-label col-md-4 col-sm-3 col-xs-12">Numero de Vivienda: <span class="required">*</span></label>
                            <div class="col-md-5 col-sm-6 col-xs-12">
-                               <input type="text" disabled name="numero_vivienda-editar" value="<?php echo set_value('numero_vivienda-editar') ?>" id=numero_vivienda-editar required="required" class="form-control col-md-3 col-sm-3 col-xs-12">
+                               <input type="text" name="numero_vivienda-editar" value="<?php echo set_value('numero_vivienda-editar') ?>" id=numero_vivienda-editar required="required" class="form-control col-md-3 col-sm-3 col-xs-12">
                                <?php echo form_error("numero_vivienda-editar", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                            </div>
                        </div>
