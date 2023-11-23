@@ -74,6 +74,16 @@ class Copropietario_model extends CI_Model
 
         return $this->db->get()->result_array();
     }
+    public function buscarCopropietariosXNumeroVivienda($numero_vivienda)
+    {
+        $this->db->select('concat (c.numero_vivienda, " " , p.nombres , " " ,p.apellidos) as label, p.nombres, p.apellidos, p.carnet_identidad, p.telefono, c.*');
+        $this->db->from('copropietario c');
+        $this->db->join('persona p', 'c.id_persona = p.id_persona');
+        $this->db->where('c.estado', '1');
+        $this->db->like('c.numero_vivienda', $numero_vivienda);
+
+        return $this->db->get()->result_array();
+    }
     public function buscarCopropietariosXCi($ci)
     {
         $this->db->select('p.nombres, p.apellidos, p.carnet_identidad as label, p.telefono, c.*');

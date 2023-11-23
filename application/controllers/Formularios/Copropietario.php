@@ -172,6 +172,12 @@ class Copropietario extends BaseController
         $propietario = $this->Copropietario_model->buscarCopropietariosXNombre($nombre);
         echo json_encode($propietario);
     }
+    public function buscarCopropietariosNumeroViviendaAjax()
+    {
+        $numero_vivienda = $this->input->post('valor');
+        $propietario = $this->Copropietario_model->buscarCopropietariosXNumeroVivienda($numero_vivienda);
+        echo json_encode($propietario);
+    }
     public function buscarCopropietariosXCarner_identidadAjax()
     {
         $ci = $this->input->post('valor');

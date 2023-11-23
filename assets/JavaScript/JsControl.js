@@ -189,6 +189,7 @@ $(document).ready(function () {
 
 
 		$('#form-editar').trigger('reset');
+		$('#id_copropietario-editar').val(id_copropietario);
 		$("#nombre-editar").val(nombre)
 		$("#apellidos-editar").val(apellidos)
 		$("#ci-editar").val(ci)
@@ -329,6 +330,8 @@ $(document).ready(function () {
 			data = ui.item.label + " " + ui.item.apellidos;
 			id_copropietario = ui.item.id_copropietario;
 			$('#copropietario').val(id_copropietario);
+			$('#numero_vivienda').val(ui.item.numero_vivienda);
+
 		},
 	});
 	$("#nombre").autocomplete({
@@ -351,7 +354,7 @@ $(document).ready(function () {
 			$('#apellidos').val(ui.item.apellidos);
 			$('#ci').val(ui.item.carnet_identidad);
 		},
-		
+
 	});
 	$("#ci").autocomplete({
 		source: function (request, response) {
@@ -372,7 +375,57 @@ $(document).ready(function () {
 			$('#nombre').val(ui.item.nombres);
 			$('#apellidos').val(ui.item.apellidos);
 		},
-		
+
+	});
+	$("#numero_vivienda").autocomplete({
+		source: function (request, response) {
+			$.ajax({
+				url: base_url + "Formularios/Copropietario/buscarCopropietariosNumeroViviendaAjax",
+				type: "POST",
+				dataType: "json",
+				data: {
+					valor: request.term
+				},
+				success: function (data) {
+					response(data);
+				}
+			});
+		},
+		minLength: 2,
+		select: function (event, ui) {
+			event.preventDefault();
+			id_copropietario = ui.item.id_copropietario;
+			$('#copropietario').val(id_copropietario);
+			$('#nombre_propietario').val(ui.item.nombres);
+			$('#numero_vivienda').val(ui.item.numero_vivienda);
+
+		},
+
+	});
+	$("#numero_vivienda-editar").autocomplete({
+		source: function (request, response) {
+			$.ajax({
+				url: base_url + "Formularios/Copropietario/buscarCopropietariosNumeroViviendaAjax",
+				type: "POST",
+				dataType: "json",
+				data: {
+					valor: request.term
+				},
+				success: function (data) {
+					response(data);
+				}
+			});
+		},
+		minLength: 1,
+		select: function (event, ui) {
+			event.preventDefault();
+			id_copropietario = ui.item.id_copropietario;
+			$('#copropietario').val(id_copropietario);
+			$('#nombre_propietario').val(ui.item.nombres);
+			$('#numero_vivienda').val(ui.item.numero_vivienda);
+
+		},
+
 	});
 
 })

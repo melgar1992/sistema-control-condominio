@@ -80,12 +80,18 @@
                                <div class="form-group <?php echo !empty(form_error("copropietario")) ? 'has-error' : ''; ?>">
                                    <label for="copropietario" class="control-label col-md-4 col-sm-3 col-xs-12">Copropietarios : <span class="required">*</span></label>
                                    <div class="col-md-4 col-sm-6 col-xs-12">
-                                       <input type="hidden"  name="copropietario" value="<?php echo set_value('copropietario') ?>" id=copropietario class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
+                                       <input type="hidden" name="copropietario" value="<?php echo set_value('copropietario') ?>" id=copropietario class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                                        <input type="text" name="nombre_propietario" value="<?php echo set_value('nombre_propietario') ?>" id=nombre_propietario required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                                        <?php echo form_error("copropietario", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                    </div>
                                </div>
-
+                               <div class="form-group <?php echo !empty(form_error("numero_vivienda")) ? 'has-error' : ''; ?>">
+                                   <label for="numero_vivienda" class="control-label col-md-4 col-sm-3 col-xs-12">Numero de Vivienda:<span class="required">*</span></label>
+                                   <div class="col-md-4 col-sm-6 col-xs-12">
+                                       <input type="text" name="numero_vivienda" value="<?php echo set_value('numero_vivienda') ?>" id=numero_vivienda required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
+                                       <?php echo form_error("numero_vivienda", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                                   </div>
+                               </div>
 
                                <div class="ln_solid"></div>
 
@@ -186,7 +192,6 @@
                <div class="modal-body">
                    <form method="POST" action="<?php echo base_url(); ?>Formularios/control/editarControl" id="form-editar" class="form-horizontal form-label-left">
 
-
                        <div class="form-group <?php echo !empty(form_error("nombre-editar")) ? 'has-error' : ''; ?>">
                            <label for="nombre-editar" class="control-label col-md-4 col-sm-3 col-xs-12">Nombres: <span class="required">*</span></label>
                            <div class="col-md-4 col-sm-6 col-xs-12">
@@ -253,7 +258,6 @@
                                <?php echo form_error("copropietario-editar", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                            </div>
                        </div>
-
 
                        <div class="ln_solid"></div>
 
