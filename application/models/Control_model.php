@@ -11,6 +11,7 @@ class Control_model extends CI_Model
         $this->db->join('persona pc', 'pc.id_persona = cp.id_persona');
         $this->db->join('vehiculo v', 'v.id_vehiculo = ce.id_vehiculo');
         $this->db->join('categoria_visita cv', 'cv.id_categoria_visita = ce.id_categoria_visita');
+        $this->db->order_by('fecha_hora_ingreso', 'DESC');
         $this->db->limit('200');
         $resultado = $this->db->get();
 
