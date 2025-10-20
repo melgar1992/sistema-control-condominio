@@ -14,7 +14,7 @@
 
                             <h3>General</h3>
                             <ul class="nav side-menu">
-                                <?php if ($this->session->userdata('rol') == 'administrador total') : ?>
+                                <?php if ($this->session->userdata('rol') == 'administrador total' || ($this->session->userdata('rol') == 'administrador condominio') ) : ?>
                                     <li><a><i class="fa fa-home"></i> Inicio <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             <li><a href="<?php echo base_url() ?>">Dashboard</a></li>
